@@ -1,12 +1,8 @@
 <template>
   <div class="home">
-    <Banner />
-    <!-- 属性管理-->
-    <Attributes />
-    <!-- 小节内容 -->
-    <Organizations />
-    <!-- 小节内容 -->
-    <Files />
+    <Title />
+    <!-- 方案-->
+    <Scheme />
     <!-- 底部 -->
     <Footer />
   </div>
@@ -14,16 +10,14 @@
 
 <script>
 // @ is an alias to /src
-import Banner from "./_Banner.vue";
-import Files from "./_Files.vue";
-import Attributes from "./_Attributes.vue";
-import Organizations from "./_Organizations.vue";
+import Scheme from "./_Scheme"
 import Footer from "@/components/Footer.vue";
 import { throttle } from "@/utils/helpers";
+import Title from "@/views/home/_Title";
 
 export default {
   name: "Home",
-  components: { Banner, Footer, Attributes, Organizations, Files },
+  components: {Title, Footer, Scheme},
   data() {
     return {};
   },
