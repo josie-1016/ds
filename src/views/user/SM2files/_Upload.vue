@@ -12,30 +12,8 @@
           <!-- <label for="input-file">Browse...</label> -->
           <input type="file" id="input-file" />
         </el-form-item>
-        <el-form-item prop="policy" label="策略表达式">
-          <el-input v-model="form.policy" placeholder="(A AND B AND (C OR D))"></el-input>
-        </el-form-item>
-        <el-form-item prop="tags" label="标签">
-          <el-input v-model="form.tags" placeholder="城市 系统 业务 备注（空格隔开）"></el-input>
-        </el-form-item>
-        <el-form-item prop="uploader" label="上传者">
-          <el-select
-            v-model="form.uploader"
-            placeholder="请选择"
-            size="middle"
-            @change="selectMethod"
-          >
-          <el-option
-            v-for="(item, index) in Uploaderoptions"
-            :key="index"
-            :label="item"
-            :value="item"
-          >
-          </el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item prop="org" label="上传组织" v-if="form.uploader=='组织'">
-          <el-input v-model="form.org" placeholder="组织名"></el-input>
+        <el-form-item prop="toName" label="定向用户">
+          <el-input v-model="form.toName" placeholder="zhuhaitest"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="upload">上传到服务器</el-button>
@@ -49,7 +27,7 @@
 // @ is an alias to /src
 import Card from "@/components/Card.vue";
 import { Message, Notification } from "element-ui";
-import { fileApi } from "@/api/files";
+import { SM2fileApi } from "@/api/SM2files";
 import { getters } from "@/store/store";
 
 export default {
@@ -60,18 +38,10 @@ export default {
   data() {
     return {
       form: {
-        tags: "",
-        policy: "",
-        uploader: "",
-        org:"",
+        toName: "",
       },
-      options: ["shanghai", "myc", "edu", "test"],
-      Uploaderoptions: ["用户", "组织"],
       uploadRules: {
-        policy: [{ required: true, trigger: "blur", message: "请填写上传策略" }],
-        tags: [{ required: true, trigger: "blur", message: "请设置标签" }],
-        uploader: [{ required: true, trigger: "blur", message: "请设置上传者" }],
-        org: [{ required: true, trigger: "blur", message: "请设置上传组织" }],
+        toName: [{ required: true, trigger: "blur", message: "请填写文件传输对象" }],
       },
     };
   },
@@ -87,9 +57,6 @@ export default {
     handleRemove(file) {
       this.$refs.upload.abort(file);
     },
-    selectMethod(uploader){
-      this.uploader=uploader;
-    },
     upload() {
       const file = document.querySelector("input[type=file]").files[0];
       console.log(file);
@@ -103,31 +70,14 @@ export default {
         return;
       }
 
-      let tags = this.form.tags.split(" ");
-
-      if (tags.length < 3) {
-        Notification.error({
-          title: "拒绝",
-          message: "请补充完整的标签",
-          duration: 2000,
-        });
-        return;
-      }
-
       this.$refs.uploadForm.validate((valid) => {
         if (!valid) return;
 
         const userName = getters.userName();
-        const policy = this.form.policy;
-        var uploader="";
-        if (this.form.uploader=="用户"){
-          uploader=getters.userName();
-        }else{
-          uploader=this.form.org;
-        }
+        const toName = this.form.toName;
 
-        fileApi
-          .encrypt({ file, userName, tags, policy, uploader })
+        SM2fileApi
+          .encrypt({userName, toName ,file})
           .then((res) => {
             Message({
               message: "上传成功",

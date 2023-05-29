@@ -36,6 +36,11 @@ export default {
           title: "数额",
         },
         {
+          to: "/user/SM2files",
+          name: "SM2files",
+          title: "SM2文件",
+        },
+        {
           to: "/user/organizations",
           name: "organizations",
           title: "组织",

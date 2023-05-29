@@ -13,8 +13,7 @@ const whiteList = [
     '/',
     '/signup',
     loginUrl,
-    '/certificates',
-    '/user/numbers'
+    '/certificates'
 ]
 
 // 自动登录

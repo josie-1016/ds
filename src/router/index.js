@@ -81,6 +81,11 @@ const routes = [
         name: 'organization',
         component: () => import('../views/user/organization/Organization.vue'),
       },
+      {
+        path: 'SM2files',
+        name: 'SM2files',
+        component: () => import('../views/user/SM2files/SM2files.vue'),
+      },
     ]
   },
 ]
