@@ -1,14 +1,13 @@
 <template>
   <el-table :data="files">
-    <el-table-column show-overflow-tooltip label="文件名" prop="fileName" />
-    <el-table-column show-overflow-tooltip label="密文哈希" prop="cipher" />
+    <el-table-column show-overflow-tooltip label="文件名" prop="fileName"/>
+    <el-table-column show-overflow-tooltip label="密文哈希" prop="cipher"/>
     <el-table-column show-overflow-tooltip label="上传者" prop="sharedUser" />
-    <el-table-column show-overflow-tooltip label="上传时间" prop="timeStamp" width="250">
+    <el-table-column show-overflow-tooltip label="上传时间" prop="timeStamp" width="200">
       <template slot-scope="scope">
         {{ scope.row.timeStamp }}
       </template>
     </el-table-column>
-    <el-table-column show-overflow-tooltip label="IP" prop="ip" width="130"></el-table-column>
     <el-table-column show-overflow-tooltip label="加密策略" prop="policy" />
     <el-table-column show-overflow-tooltip label="标签" prop="tags">
       <template slot-scope="scope">
@@ -23,7 +22,7 @@
       </template>
     </el-table-column>
 
-    <el-table-column label="操作" align="right" width="200">
+    <el-table-column label="操作" align="right" width="300">
       <template slot-scope="scope">
         <el-button size="mini" type="success" @click="verifySignature(scope.row)"> 验签 </el-button>
         <el-button size="mini" type="success" @click="decryDownload(scope.row)">
