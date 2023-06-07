@@ -95,11 +95,7 @@ export default {
         })
         .catch((e) => {
           this.$message({
-<<<<<<< HEAD
-            message: e,
-=======
             message: e.message,
->>>>>>> dev
             type: "error",
           });
         });
@@ -123,11 +119,7 @@ export default {
         })
         .catch((e) => {
           this.$message({
-<<<<<<< HEAD
-            message: e,
-=======
             message: e.message,
->>>>>>> dev
             type: "error",
           });
         });
@@ -154,10 +146,7 @@ export default {
       orgApi
         .approvalAttr({ userName, orgName, attrName })
         .then(() => {
-<<<<<<< HEAD
           this.searchAttr();
-=======
->>>>>>> dev
           this.$message({
             message: "提交成功",
             duration: 2 * 1000,
@@ -168,11 +157,7 @@ export default {
         })
         .catch((e) => {
           this.$message({
-<<<<<<< HEAD
-            message: e,
-=======
             message: e.message,
->>>>>>> dev
             type: "error",
           });
         });

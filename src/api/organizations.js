@@ -32,12 +32,6 @@ export const orgApi = {
             orgName: _data.orgName,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/org/apply/creation',
-            method: 'post',
-            data
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/org/apply/creation',
@@ -56,7 +50,6 @@ export const orgApi = {
                     reject(response)
                 }
             }).catch(reject)
->>>>>>> dev
         })
     },
 
@@ -73,12 +66,6 @@ export const orgApi = {
             orgName: orgName,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/org/apply/creation/approval',
-            method: 'post',
-            data
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/org/apply/creation/approval',
@@ -97,7 +84,6 @@ export const orgApi = {
                     reject(response)
                 }
             }).catch(reject)
->>>>>>> dev
         })
     },
 
@@ -118,12 +104,6 @@ export const orgApi = {
             attrName: "",
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/org/part-pk',
-            method: 'post',
-            params: data
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/org/part-pk',
@@ -142,7 +122,6 @@ export const orgApi = {
                     reject(response)
                 }
             }).catch(reject)
->>>>>>> dev
         })
     },
 
@@ -163,12 +142,6 @@ export const orgApi = {
             attrName,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/org/part-pk',
-            method: 'post',
-            params: data
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/org/part-pk',
@@ -187,7 +160,6 @@ export const orgApi = {
                     reject(response)
                 }
             }).catch(reject)
->>>>>>> dev
         })
     },
 
@@ -246,12 +218,6 @@ export const orgApi = {
             attrName: attrName,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/org/complete-pk',
-            method: 'post',
-            params: data,
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/org/complete-pk',
@@ -270,7 +236,6 @@ export const orgApi = {
                     reject(response)
                 }
             }).catch(reject)
->>>>>>> dev
         })
     },
 
@@ -289,28 +254,6 @@ export const orgApi = {
             attrName: "",
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/org/apply',
-            method: 'get',
-            params,
-        })
-        /**
-         * {
-         *     String orgId;
-         *     Map<String, Boolean> uidMap;
-         *     Map<String, Map<String, String>> shareMap;
-         *     Map<String, String> opkMap;
-         *     Integer t;
-         *     Integer n;
-         *     String fromUserName;
-         *     OrgApplyStatusEnum status;
-         *     String createTime;
-         *     String attrName;
-         *     OrgApplyTypeEnum type;
-         * }
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/org/apply',
@@ -348,7 +291,6 @@ export const orgApi = {
                 else reject(error)
             })
         })
->>>>>>> dev
     },
 
     /**
@@ -366,28 +308,6 @@ export const orgApi = {
             attrName: attrName,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/org/apply',
-            method: 'get',
-            params,
-        })
-        /**
-         * {
-         *     String orgId;
-         *     Map<String, Boolean> uidMap;
-         *     Map<String, Map<String, String>> shareMap;
-         *     Map<String, String> opkMap;
-         *     Integer t;
-         *     Integer n;
-         *     String fromUserName;
-         *     OrgApplyStatusEnum status;
-         *     String createTime;
-         *     String attrName;
-         *     OrgApplyTypeEnum type;
-         * }
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/org/apply',
@@ -425,7 +345,6 @@ export const orgApi = {
                 else reject(error)
             })
         })
->>>>>>> dev
     },
 
     /**
@@ -440,23 +359,6 @@ export const orgApi = {
             orgName
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/org/',
-            method: 'get',
-            params: data
-        })
-        /**
-         * {
-         *     String orgId;
-         *     List<String> uidSet;
-         *     List<String> attrSet;
-         *     Integer t;
-         *     Integer n;
-         *     String opk;
-         * }
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/org/',
@@ -483,7 +385,6 @@ export const orgApi = {
                 }
             }).catch(reject)
         })
->>>>>>> dev
     },
 
     /**
@@ -501,16 +402,6 @@ export const orgApi = {
             attrName,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/org/apply/attribute',
-            method: 'post',
-            data
-        })
-        /**
-         * {}
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/org/apply/attribute',
@@ -530,7 +421,6 @@ export const orgApi = {
                 }
             }).catch(reject)
         })
->>>>>>> dev
     },
 
     /**
@@ -548,16 +438,6 @@ export const orgApi = {
             attrName,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/org/apply/attribute/approval',
-            method: 'post',
-            data,
-        })
-        /**
-         * {}
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/org/apply/attribute/approval',
@@ -577,6 +457,5 @@ export const orgApi = {
                 }
             }).catch(reject)
         })
->>>>>>> dev
     },
 }

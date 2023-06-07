@@ -65,11 +65,7 @@ export default {
         })
         .catch((e) => {
           this.$message({
-<<<<<<< HEAD
-            message: e,
-=======
             message: e.message,
->>>>>>> dev
             type: "error",
           });
         });

@@ -19,11 +19,7 @@ export function getToken() {
 
 export function setToken(token) {
     return Cookies.set(TOKEN_KEY, token, { 
-<<<<<<< HEAD
-        secure: true,
-=======
         secure: true, 
->>>>>>> dev
         "max-age": 3600 // 登录有效期，单位（秒）
     })
 }

@@ -1,24 +1,14 @@
 <template>
   <el-table :data="files">
-<<<<<<< HEAD
-    <el-table-column show-overflow-tooltip label="文件名" prop="fileName" />
-    <el-table-column show-overflow-tooltip label="密文哈希" prop="cipher" />
-    <el-table-column show-overflow-tooltip label="上传者" prop="sharedUser" />
-    <el-table-column show-overflow-tooltip label="上传时间" prop="timeStamp" width="250">
-=======
     <el-table-column show-overflow-tooltip label="文件名" prop="fileName"/>
     <el-table-column show-overflow-tooltip label="密文哈希" prop="cipher"/>
     <el-table-column show-overflow-tooltip label="上传者" prop="sharedUser" />
     <el-table-column show-overflow-tooltip label="上传时间" prop="timeStamp" width="200">
->>>>>>> dev
       <template slot-scope="scope">
         {{ scope.row.timeStamp }}
       </template>
     </el-table-column>
-<<<<<<< HEAD
     <el-table-column show-overflow-tooltip label="IP" prop="ip" width="130"></el-table-column>
-=======
->>>>>>> dev
     <el-table-column show-overflow-tooltip label="加密策略" prop="policy" />
     <el-table-column show-overflow-tooltip label="标签" prop="tags">
       <template slot-scope="scope">
@@ -33,14 +23,9 @@
       </template>
     </el-table-column>
 
-<<<<<<< HEAD
-    <el-table-column label="操作" align="right" width="200">
-      <template slot-scope="scope">
-=======
     <el-table-column label="操作" align="right" width="300">
       <template slot-scope="scope">
         <el-button size="mini" type="success" @click="verifySignature(scope.row)"> 验签 </el-button>
->>>>>>> dev
         <el-button size="mini" type="success" @click="decryDownload(scope.row)">
           解密下载
         </el-button>
@@ -58,11 +43,8 @@ import { FileDownloader } from "@/mixins/Download";
 import { FilterEmpty } from "@/mixins/FilterEmpty";
 import { TimeFormat } from "@/mixins/TimeFormat";
 
-<<<<<<< HEAD
-=======
 import { Message } from "element-ui";
 
->>>>>>> dev
 export default {
   name: "FilesTable",
   mixins: [FileDownloader, FilterEmpty, TimeFormat],
@@ -86,15 +68,9 @@ export default {
             .then((_) => {
               this.saveFile(fileName, _);
             })
-<<<<<<< HEAD
-            .catch((message) => {
-              this.$message({
-                message,
-=======
             .catch((e) => {
               this.$message({
                 message: e.message,
->>>>>>> dev
                 duration: 5000,
                 type: "error",
               });
@@ -102,11 +78,7 @@ export default {
         })
         .catch((e) => {
           this.$message({
-<<<<<<< HEAD
-            message: e,
-=======
             message: e.message,
->>>>>>> dev
             duration: 5000,
             type: "error",
           });
@@ -124,18 +96,12 @@ export default {
         })
         .catch((e) => {
           this.$message({
-<<<<<<< HEAD
-            message: e,
-=======
             message: e.message,
->>>>>>> dev
             duration: 5000,
             type: "error",
           });
         });
     },
-<<<<<<< HEAD
-=======
     verifySignature(scope){
       const userName = getters.userName();
       const { sharedUser, fileName } = scope;
@@ -158,7 +124,6 @@ export default {
             });
           });
     },
->>>>>>> dev
   },
 };
 </script>

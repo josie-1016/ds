@@ -1,8 +1,5 @@
 import request from '@/utils/request'
-<<<<<<< HEAD
-=======
 import { localAttrs } from "../mock/attributes"
->>>>>>> dev
 
 export const attrApi = {
 
@@ -19,35 +16,6 @@ export const attrApi = {
             attrName: _data.attr,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/dabe/user/attr',
-            method: 'post',
-            data,
-            params: data
-        })
-        /**
-         * {
-         *     "appliedAttrMap":{ },
-         *     "privacyAttrMap":{},
-         *     "APKMap":{
-         *         "someone:friend":{"GY":"[369150..., 601530...]"}
-         *     },
-         *     "ASKMap":{
-         *         "someone:friend":{ "Y":"791100..."}
-         *     },
-         *     "EGGAlpha":"[206605..., 320061...]",
-         *     "Alpha":"907358...",
-         *     "GAlpha":"[569334..., 105875...]",
-         *     "Name":"someone",
-         *     "OPKMap":{},
-         *     "OSKMap":{ },
-         *     "Password":"202cb962ac59075b964b07152d234b70",
-         *     "UserType":"org",
-         *     "Channel":"myc"
-         * }
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/dabe/user/attr',
@@ -92,7 +60,6 @@ export const attrApi = {
                 else reject(error)
             })
         })
->>>>>>> dev
     },
 
     /**
@@ -108,17 +75,6 @@ export const attrApi = {
             attrName: _data.attr,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/user/attr',
-            method: 'post',
-            data,
-            params: data
-        })
-        /**
-         * {}
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/user/attr',
@@ -145,7 +101,6 @@ export const attrApi = {
                 else reject(error)
             })
         })
->>>>>>> dev
     },
 
     /**
@@ -168,34 +123,6 @@ export const attrApi = {
             remark: _data.remark
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/user/attr/apply',
-            method: 'post',
-            data
-        })
-        /**
-         * {
-         *     "appliedAttrMap":{ },
-         *     "privacyAttrMap":{},
-         *     "APKMap":{
-         *         "someone:friend":{"GY":"[369150..., 601530...]"}
-         *     },
-         *     "ASKMap":{
-         *         "someone:friend":{ "Y":"791100..."}
-         *     },
-         *     "EGGAlpha":"[206605..., 320061...]",
-         *     "Alpha":"907358...",
-         *     "GAlpha":"[569334..., 105875...]",
-         *     "Name":"someone",
-         *     "OPKMap":{},
-         *     "OSKMap":{ },
-         *     "Password":"202cb962ac59075b964b07152d234b70",
-         *     "UserType":"org",
-         *     "Channel":"myc"
-         * }
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/user/attr/apply',
@@ -216,7 +143,6 @@ export const attrApi = {
                 }
             }).catch(reject)
         })
->>>>>>> dev
     },
 
     /**
@@ -238,47 +164,6 @@ export const attrApi = {
             status: _data.status
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/user/attr/apply',
-            method: 'get',
-            params,
-        })
-        /**
-         * [
-         *     {
-         *         "fromUid":"someone2",
-         *         "toUid":"someone",
-         *         "toOrgId":"",
-         *         "isPublic":true,
-         *         "attrName":"someone:family",
-         *         "remark":"",
-         *         "n":1,
-         *         "t":1,
-         *         "applyType":"TO_USER",
-         *         "status":"PENDING",
-         *         "approvalMap":{
-         *             "someone":null
-         *         }
-         *     },
-         *     {
-         *         "fromUid":"someone2",
-         *         "toUid":"someone",
-         *         "toOrgId":"",
-         *         "isPublic":true,
-         *         "attrName":"someone:friend",
-         *         "remark":"",
-         *         "n":1,
-         *         "t":1,
-         *         "applyType":"TO_USER",
-         *         "status":"PENDING",
-         *         "approvalMap":{
-         *             "someone":null
-         *         }
-         *     }
-         * ]
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/user/attr/apply',
@@ -329,7 +214,6 @@ export const attrApi = {
                 }
             }).catch(reject)
         })
->>>>>>> dev
     },
 
     /**
@@ -352,16 +236,6 @@ export const attrApi = {
             agree: _data.agree
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/user/attr/approval',
-            method: 'post',
-            data,
-        })
-        /**
-         * void
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/user/attr/approval',
@@ -381,7 +255,6 @@ export const attrApi = {
                 }
             }).catch(reject)
         })
->>>>>>> dev
     },
 
     /**
@@ -395,34 +268,6 @@ export const attrApi = {
             fileName: user,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/user/attr/sync',
-            method: 'post',
-            data,
-            params: data
-        })
-        /**
-         * {
-         *     "appliedAttrMap":{
-         *         "someone:family":"[159429..., 572246...]",
-         *         "someone:friend":"[114119..., 477210...]"
-         *     },
-         *     "privacyAttrMap":{},
-         *     "APKMap":{},
-         *     "ASKMap":{},
-         *     "EGGAlpha":"[481866..., 536232...]",
-         *     "Alpha":"126759...",
-         *     "GAlpha":"[158540..., 620270...]",
-         *     "Name":"someone2",
-         *     "OPKMap":{},
-         *     "OSKMap":{},
-         *     "Password":"202cb962ac59075b964b07152d234b70",
-         *     "UserType":"user",
-         *     "Channel":"myc"
-         * }
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/user/attr/sync',
@@ -460,7 +305,6 @@ export const attrApi = {
                 }
             }).catch(reject)
         })
->>>>>>> dev
     },
 
     /**
@@ -485,17 +329,6 @@ export const attrApi = {
             remark,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/user/attr/revoke',
-            method: 'post',
-            data,
-            params: data
-        })
-        /**
-         * void
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/user/attr/revoke',
@@ -516,7 +349,6 @@ export const attrApi = {
                 }
             }).catch(reject)
         })
->>>>>>> dev
     },
 
     /**
@@ -530,26 +362,6 @@ export const attrApi = {
             userName
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/user/attr/history',
-            method: 'post',
-            data,
-            params: data
-        })
-        /**
-         * [
-         *     {
-         *       "uid":"someone2",                // 当前用户
-         *         "fromUid":"someone",           // 操作用户
-         *         "attrName":"someone:family",   // 属性名称
-         *         "operation":"agree"或"revoke", // 操作：授权或撤销
-         *         "timeStamp":"xxx",             // 操作时间
-         *     },
-         *     ...
-         * ]
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/user/attr/history',
@@ -579,6 +391,5 @@ export const attrApi = {
                 }
             }).catch(reject)
         })
->>>>>>> dev
     },
 }

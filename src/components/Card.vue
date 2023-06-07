@@ -26,11 +26,7 @@ export default {
 .card {
   padding: var(--content-padding, 16px);
   background-color: var(--bg-color-0);
-<<<<<<< HEAD
-  /* color: var(--ft-color-0); */
-=======
   color: var(--ft-color-0);
->>>>>>> dev
 }
 
 .card:hover {

@@ -22,16 +22,6 @@ export const adminApi = {
             userName: _data.userName,
         }
 
-<<<<<<< HEAD
-        return request({
-            url: '/statistic/usercnt',
-            method: 'get',
-            data
-        })
-        /**
-         * 100       用户总数
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/statistic/usercnt',
@@ -56,7 +46,6 @@ export const adminApi = {
                 else reject(error)
             })
         })
->>>>>>> dev
     },
 
     /**
@@ -64,15 +53,6 @@ export const adminApi = {
      * @returns Promise
      */
     attrsNum: function () {
-<<<<<<< HEAD
-        return request({
-            url: '/statistic/attrcnt',
-            method: 'get'
-        });
-        /**
-         * 100       属性总数
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/statistic/attrcnt',
@@ -96,7 +76,6 @@ export const adminApi = {
                 else reject(error)
             })
         })
->>>>>>> dev
     },
 
     /**
@@ -104,15 +83,6 @@ export const adminApi = {
      * @returns Promise
      */
      orgsNum: function () {
-<<<<<<< HEAD
-        return request({
-            url: '/statistic/orgcnt',
-            method: 'get'
-        })
-        /**
-         * 100       组织总数
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/statistic/orgcnt',
@@ -136,7 +106,6 @@ export const adminApi = {
                 else reject(error)
             })
         })
->>>>>>> dev
     },
 
     /**
@@ -144,15 +113,6 @@ export const adminApi = {
      * @returns Promise
      */
      channelsNum: function () {
-<<<<<<< HEAD
-        return request({
-            url: '/statistic/channelcnt',
-            method: 'get'
-        })
-        /**
-         * 100       通道总数
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/statistic/channelcnt',
@@ -176,7 +136,6 @@ export const adminApi = {
                 else reject(error)
             })
         })
->>>>>>> dev
     },
 
     /**
@@ -184,15 +143,6 @@ export const adminApi = {
      * @returns Promise
      */
      channels: function () {
-<<<<<<< HEAD
-        return request({
-            url: '/statistic/channlelist',
-            method: 'get'
-        })
-        /**
-         * []      返回通道列表
-         */
-=======
         return new Promise((resolve, reject) => {
             request({
                 url: '/statistic/channlelist',
@@ -216,7 +166,6 @@ export const adminApi = {
                 else reject(error)
             })
         })
->>>>>>> dev
     },
 
 }

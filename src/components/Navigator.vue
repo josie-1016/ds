@@ -9,12 +9,6 @@
       </el-menu> -->
     </div>
     <div class="options">
-<<<<<<< HEAD
-      <router-link to="/certificates">
-        <button> 证书管理 </button>
-      </router-link>
-=======
->>>>>>> dev
 
       <router-link to="/allfiles">
         <button> 文件仓库 </button>

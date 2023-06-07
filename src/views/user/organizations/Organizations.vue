@@ -6,11 +6,7 @@
     v-on:enter="animEnter"
     appear
   >
-<<<<<<< HEAD
     <Mine v-if="isExist" @refresh="refresh" key="0" data-index="0" />
-=======
-    <Mine key="0" data-index="0" />
->>>>>>> dev
   </transition-group>
 </template>
 
@@ -26,10 +22,7 @@ export default {
   data() {
     return {
       attributes: [],
-<<<<<<< HEAD
       isExist:true,
-=======
->>>>>>> dev
     };
   },
 
@@ -48,15 +41,12 @@ export default {
         done();
       }, delay);
     },
-<<<<<<< HEAD
     refresh(){
       this.isExist=false
       this.$nextTick(() => {
         this.isExist=true
       })
     },
-=======
->>>>>>> dev
   },
 };
 </script>

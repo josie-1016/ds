@@ -1,22 +1,13 @@
 <template>
   <Card title="我的属性">
     <template v-slot:op>
-<<<<<<< HEAD
       <el-input size="medium" placeholder="请输入要声明的属性名" v-model="newAttr">
         <el-button v-loading.fullscreen.lock="fullscreenLoading" slot="append" :disabled="show" @click="generateAttr">声明新属性</el-button>
-=======
-      <el-input size="medium" placeholder="请输入要声明的属性" v-model="newAttr">
-        <el-button slot="append" @click="generateAttr">声明新属性</el-button>
->>>>>>> dev
       </el-input>
     </template>
     <div v-if="APKMap">
       <el-table :data="getAttributes(APKMap)" style="width: 100%">
-<<<<<<< HEAD
         <el-table-column show-overflow-tooltip prop="name" label="属性名" width="300"> </el-table-column>
-=======
-        <el-table-column show-overflow-tooltip prop="name" label="属性名"> </el-table-column>
->>>>>>> dev
         <el-table-column show-overflow-tooltip prop="value" label="属性公钥"> </el-table-column>
       </el-table>
     </div>
@@ -38,21 +29,15 @@ export default {
 
   computed: {
     ...getters.mapUser(["APKMap"]),
-<<<<<<< HEAD
     show(){
       return this.newAttr==""?true:false;
     }
-=======
->>>>>>> dev
   },
 
   data() {
     return {
       newAttr: "",
-<<<<<<< HEAD
       fullscreenLoading:false,
-=======
->>>>>>> dev
     };
   },
 
@@ -70,17 +55,11 @@ export default {
     generateAttr() {
       const { name } = getters.properties(["name", "password"]);
       const attr = `${name}:${this.newAttr}`;
-<<<<<<< HEAD
       this.fullscreenLoading = true;
       actions
         .generate({ name, attr })
         .then(() => {
           this.fullscreenLoading = false;
-=======
-      actions
-        .generate({ name, attr })
-        .then(() => {
->>>>>>> dev
           this.$message({
             message: "创建成功",
             duration: 2 * 1000,
@@ -88,21 +67,14 @@ export default {
           });
         })
         .catch((e) => {
-<<<<<<< HEAD
           this.fullscreenLoading = false;
           this.$message({
-            message: e,
+            message: e.message,
             type: "error",
           });
         })
         .finally(()=>{
           this.newAttr="";
-=======
-          this.$message({
-            message: e.message,
-            type: "error",
-          });
->>>>>>> dev
         });
     },
   },

@@ -19,11 +19,7 @@
     </el-carousel>
     <div class="intro">
       <div>
-<<<<<<< HEAD
-        <h1>智慧城市数据共享交换</h1>
-=======
         <h1>供应链数据共享交换</h1>
->>>>>>> dev
       </div>
       <router-link v-if="login" to="/user">
         <div class="wrap">

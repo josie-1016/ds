@@ -18,10 +18,6 @@
         <el-form-item prop="tags" label="标签">
           <el-input v-model="form.tags" placeholder="城市 系统 业务 备注（空格隔开）"></el-input>
         </el-form-item>
-<<<<<<< HEAD
-        <el-form-item>
-          <el-button v-loading.fullscreen.lock="fullscreenLoading" type="primary" @click="upload">上传到服务器</el-button>
-=======
         <el-form-item prop="uploader" label="上传者">
           <el-select
             v-model="form.uploader"
@@ -42,8 +38,7 @@
           <el-input v-model="form.org" placeholder="组织名"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="upload">上传到服务器</el-button>
->>>>>>> dev
+          <el-button v-loading.fullscreen.lock="fullscreenLoading" type="primary" @click="upload">上传到服务器</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -64,17 +59,7 @@ export default {
   },
   data() {
     return {
-<<<<<<< HEAD
       fullscreenLoading:false,
-      form: {
-        tags: "",
-        policy: "",
-      },
-      options: ["shanghai", "myc", "edu", "test"],
-      uploadRules: {
-        policy: [{ required: true, trigger: "blur", message: "请填写上传策略" }],
-        tags: [{ required: true, trigger: "blur", message: "请设置标签" }],
-=======
       form: {
         tags: "",
         policy: "",
@@ -88,7 +73,6 @@ export default {
         tags: [{ required: true, trigger: "blur", message: "请设置标签" }],
         uploader: [{ required: true, trigger: "blur", message: "请设置上传者" }],
         org: [{ required: true, trigger: "blur", message: "请设置上传组织" }],
->>>>>>> dev
       },
     };
   },
@@ -104,12 +88,9 @@ export default {
     handleRemove(file) {
       this.$refs.upload.abort(file);
     },
-<<<<<<< HEAD
-=======
     selectMethod(uploader){
       this.uploader=uploader;
     },
->>>>>>> dev
     upload() {
       const file = document.querySelector("input[type=file]").files[0];
       console.log(file);
@@ -128,11 +109,7 @@ export default {
       if (tags.length < 3) {
         Notification.error({
           title: "拒绝",
-<<<<<<< HEAD
-          message: "标签数不能少于 3 个",
-=======
           message: "请补充完整的标签",
->>>>>>> dev
           duration: 2000,
         });
         return;
@@ -143,43 +120,27 @@ export default {
 
         const userName = getters.userName();
         const policy = this.form.policy;
-<<<<<<< HEAD
-        this.fullscreenLoading = true;
-        fileApi
-          .encrypt({ file, userName, tags, policy })
-          .then(() => {
-            this.fullscreenLoading = false;
-=======
         var uploader="";
         if (this.form.uploader=="用户"){
           uploader=getters.userName();
         }else{
           uploader=this.form.org;
         }
-
+        this.fullscreenLoading = true;
         fileApi
           .encrypt({ file, userName, tags, policy, uploader })
-          .then((res) => {
->>>>>>> dev
+          .then(() => {
             Message({
               message: "上传成功",
               duration: 5000,
               type: "success",
             });
-<<<<<<< HEAD
             this.$emit('refresh');
           })
-          .catch((message) => {
+          .catch((e) => {
             this.fullscreenLoading = false;
             Message({
-              message,
-=======
-            console.log(res);
-          })
-          .catch((e) => {
-            Message({
               message: e.message,
->>>>>>> dev
               duration: 5000,
               type: "error",
             });
