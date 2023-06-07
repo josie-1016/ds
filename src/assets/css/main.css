@@ -1,0 +1,35 @@
+:root {
+    --body-background: #f1f1f2;
+
+    --body-margin: 5%;
+    --row-distance: 10px;
+    --content-padding: 16px;
+    --header-height: 104px;
+
+    --prime-color-0: #1e3799;
+    --prime-color-1:#4a69bd;
+
+    --ft-color-0: black;
+    --ft-color-1: gray;
+    --ft-color-2: rgb(63, 63, 63);
+    --ft-color-light: white;
+
+    --bg-color-0: white;
+    --bg-color-1: #d4d4d4;
+    --bg-color-2: #f1f1f2;
+    --bg-color-dark: #252436;
+}
+
+html {
+    /* background-color: var(--bg-color-0, rgb(124, 124, 124)); */
+    background-color: var(--body-background, #f1f1f2);
+}
+
+body {
+    margin: 0;
+    background-color: var(--body-background, #f1f1f2);
+}
+
+.main-content {
+    padding: var(--content-padding, 16px);
+}
