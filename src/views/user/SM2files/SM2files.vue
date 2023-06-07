@@ -6,33 +6,22 @@
     v-on:enter="animEnter"
     appear
   >
-<<<<<<< HEAD
-    <Mine v-if="isExist" @refresh="refresh" key="0" data-index="0" />
-=======
-    <Mine key="0" data-index="0" />
->>>>>>> dev
+    <Mine   key="0" data-index="0.3" />
+    <Upload key="1" data-index="0" />
   </transition-group>
 </template>
 
 <script>
 // @ is an alias to /src
 import Mine from "./_Mine.vue";
+import Upload from "./_Upload.vue";
 
 export default {
-  name: "Organizations",
+  name: "SM2Files",
   components: {
     Mine,
+    Upload,
   },
-  data() {
-    return {
-      attributes: [],
-<<<<<<< HEAD
-      isExist:true,
-=======
->>>>>>> dev
-    };
-  },
-
   methods: {
     beforeEnter: function (el) {
       if (el.dataset.index > -1) {
@@ -43,24 +32,13 @@ export default {
     animEnter: function (el, done) {
       var delay = el.dataset.index * 250;
       setTimeout(function () {
-        // 清空初始样式
-        el.style = "";
+        el.style = ""; // 清空初始的偏移样式
         done();
       }, delay);
     },
-<<<<<<< HEAD
-    refresh(){
-      this.isExist=false
-      this.$nextTick(() => {
-        this.isExist=true
-      })
-    },
-=======
->>>>>>> dev
   },
 };
 </script>
-
 
 <style scoped>
 .grid-rows {

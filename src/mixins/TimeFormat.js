@@ -2,6 +2,10 @@
 export const TimeFormat = {
     methods: {
         formatTime(unix_timestamp) {
+<<<<<<< HEAD
+=======
+            if(unix_timestamp === "") return ""
+>>>>>>> dev
             let a = "-";
             try {
                 // Create a new JavaScript Date object based on the timestamp

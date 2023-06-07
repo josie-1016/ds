@@ -22,6 +22,7 @@ export const adminApi = {
             userName: _data.userName,
         }
 
+<<<<<<< HEAD
         return request({
             url: '/statistic/usercnt',
             method: 'get',
@@ -30,6 +31,32 @@ export const adminApi = {
         /**
          * 100       用户总数
          */
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/statistic/usercnt',
+                method: 'get',
+                data
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success",  描述
+                //     "data": 100       用户总数
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(error => {
+                // 调用 Mock 的数据
+                if (error) {
+                }
+                else reject(error)
+            })
+        })
+>>>>>>> dev
     },
 
     /**
@@ -37,6 +64,7 @@ export const adminApi = {
      * @returns Promise
      */
     attrsNum: function () {
+<<<<<<< HEAD
         return request({
             url: '/statistic/attrcnt',
             method: 'get'
@@ -44,6 +72,31 @@ export const adminApi = {
         /**
          * 100       属性总数
          */
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/statistic/attrcnt',
+                method: 'get'
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success",  描述
+                //     "data": 100       属性总数
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(error => {
+                // 调用 Mock 的数据
+                if (error) {
+                }
+                else reject(error)
+            })
+        })
+>>>>>>> dev
     },
 
     /**
@@ -51,6 +104,7 @@ export const adminApi = {
      * @returns Promise
      */
      orgsNum: function () {
+<<<<<<< HEAD
         return request({
             url: '/statistic/orgcnt',
             method: 'get'
@@ -58,6 +112,31 @@ export const adminApi = {
         /**
          * 100       组织总数
          */
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/statistic/orgcnt',
+                method: 'get'
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success",  描述
+                //     "data": 100       组织总数
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(error => {
+                // 调用 Mock 的数据
+                if (error) {
+                }
+                else reject(error)
+            })
+        })
+>>>>>>> dev
     },
 
     /**
@@ -65,6 +144,7 @@ export const adminApi = {
      * @returns Promise
      */
      channelsNum: function () {
+<<<<<<< HEAD
         return request({
             url: '/statistic/channelcnt',
             method: 'get'
@@ -72,6 +152,31 @@ export const adminApi = {
         /**
          * 100       通道总数
          */
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/statistic/channelcnt',
+                method: 'get'
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success",  描述
+                //     "data": 100       通道总数
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(error => {
+                // 调用 Mock 的数据
+                if (error) {
+                }
+                else reject(error)
+            })
+        })
+>>>>>>> dev
     },
 
     /**
@@ -79,6 +184,7 @@ export const adminApi = {
      * @returns Promise
      */
      channels: function () {
+<<<<<<< HEAD
         return request({
             url: '/statistic/channlelist',
             method: 'get'
@@ -86,6 +192,31 @@ export const adminApi = {
         /**
          * []      返回通道列表
          */
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/statistic/channlelist',
+                method: 'get'
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success",  描述
+                //     "data": list      返回通道列表
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(error => {
+                // 调用 Mock 的数据
+                if (error) {
+                }
+                else reject(error)
+            })
+        })
+>>>>>>> dev
     },
 
 }

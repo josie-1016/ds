@@ -7,7 +7,12 @@ module.exports = (options = {}) => ({
     disableHostCheck: true,   // That solved it
     proxy: {
       '/dev/': {
+<<<<<<< HEAD
         target: 'http://localhost:8080',
+=======
+        // target: 'http://10.176.40.46:8080',
+        target: 'http://127.0.0.1:8080',
+>>>>>>> dev
         changeOrigin: true,
         pathRewrite: {
           '^/dev': '/abe'

@@ -32,10 +32,31 @@ export const orgApi = {
             orgName: _data.orgName,
         }
 
+<<<<<<< HEAD
         return request({
             url: '/org/apply/creation',
             method: 'post',
             data
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/org/apply/creation',
+                method: 'post',
+                data
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success",  描述
+                //     "data": null
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(reject)
+>>>>>>> dev
         })
     },
 
@@ -52,10 +73,31 @@ export const orgApi = {
             orgName: orgName,
         }
 
+<<<<<<< HEAD
         return request({
             url: '/org/apply/creation/approval',
             method: 'post',
             data
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/org/apply/creation/approval',
+                method: 'post',
+                data
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success",  描述
+                //     "data":null
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(reject)
+>>>>>>> dev
         })
     },
 
@@ -76,10 +118,31 @@ export const orgApi = {
             attrName: "",
         }
 
+<<<<<<< HEAD
         return request({
             url: '/org/part-pk',
             method: 'post',
             params: data
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/org/part-pk',
+                method: 'post',
+                params: data
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":null,  描述
+                //     "data": {}
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(reject)
+>>>>>>> dev
         })
     },
 
@@ -100,10 +163,31 @@ export const orgApi = {
             attrName,
         }
 
+<<<<<<< HEAD
         return request({
             url: '/org/part-pk',
             method: 'post',
             params: data
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/org/part-pk',
+                method: 'post',
+                params: data
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":null,  描述
+                //     "data": {}
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(reject)
+>>>>>>> dev
         })
     },
 
@@ -162,10 +246,31 @@ export const orgApi = {
             attrName: attrName,
         }
 
+<<<<<<< HEAD
         return request({
             url: '/org/complete-pk',
             method: 'post',
             params: data,
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/org/complete-pk',
+                method: 'post',
+                params: data,
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":null,  描述
+                //     "data":null
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(reject)
+>>>>>>> dev
         })
     },
 
@@ -184,6 +289,7 @@ export const orgApi = {
             attrName: "",
         }
 
+<<<<<<< HEAD
         return request({
             url: '/org/apply',
             method: 'get',
@@ -204,6 +310,45 @@ export const orgApi = {
          *     OrgApplyTypeEnum type;
          * }
          */
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/org/apply',
+                method: 'get',
+                params,
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success", 描述
+                //     "data": {
+                //          String orgId;
+                //          Map<String, Boolean> uidMap;
+                //          Map<String, Map<String, String>> shareMap;
+                //          Map<String, String> opkMap;
+                //          Integer t;
+                //          Integer n;
+                //          String fromUserName;
+                //          OrgApplyStatusEnum status;
+                //          String createTime;
+                //          String attrName;
+                //          OrgApplyTypeEnum type;
+                //      }
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(error => {
+                // 调用 Mock 的数据
+                if (error) {
+                    console.log(error);
+                }
+                else reject(error)
+            })
+        })
+>>>>>>> dev
     },
 
     /**
@@ -221,6 +366,7 @@ export const orgApi = {
             attrName: attrName,
         }
 
+<<<<<<< HEAD
         return request({
             url: '/org/apply',
             method: 'get',
@@ -241,6 +387,45 @@ export const orgApi = {
          *     OrgApplyTypeEnum type;
          * }
          */
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/org/apply',
+                method: 'get',
+                params,
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success", 描述
+                //     "data": {
+                //          String orgId;
+                //          Map<String, Boolean> uidMap;
+                //          Map<String, Map<String, String>> shareMap;
+                //          Map<String, String> opkMap;
+                //          Integer t;
+                //          Integer n;
+                //          String fromUserName;
+                //          OrgApplyStatusEnum status;
+                //          String createTime;
+                //          String attrName;
+                //          OrgApplyTypeEnum type;
+                //      }
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(error => {
+                // 调用 Mock 的数据
+                if (error) {
+                    console.log(error);
+                }
+                else reject(error)
+            })
+        })
+>>>>>>> dev
     },
 
     /**
@@ -255,6 +440,7 @@ export const orgApi = {
             orgName
         }
 
+<<<<<<< HEAD
         return request({
             url: '/org/',
             method: 'get',
@@ -270,6 +456,34 @@ export const orgApi = {
          *     String opk;
          * }
          */
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/org/',
+                method: 'get',
+                params: data
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success", 描述
+                //     "data": {
+                //          String orgId;
+                //          List<String> uidSet;
+                //          List<String> attrSet;
+                //          Integer t;
+                //          Integer n;
+                //          String opk;
+                //      }
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(reject)
+        })
+>>>>>>> dev
     },
 
     /**
@@ -287,6 +501,7 @@ export const orgApi = {
             attrName,
         }
 
+<<<<<<< HEAD
         return request({
             url: '/org/apply/attribute',
             method: 'post',
@@ -295,6 +510,27 @@ export const orgApi = {
         /**
          * {}
          */
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/org/apply/attribute',
+                method: 'post',
+                data
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success", 描述
+                //     "data": object   返回数据
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(reject)
+        })
+>>>>>>> dev
     },
 
     /**
@@ -312,6 +548,7 @@ export const orgApi = {
             attrName,
         }
 
+<<<<<<< HEAD
         return request({
             url: '/org/apply/attribute/approval',
             method: 'post',
@@ -320,5 +557,26 @@ export const orgApi = {
         /**
          * {}
          */
+=======
+        return new Promise((resolve, reject) => {
+            request({
+                url: '/org/apply/attribute/approval',
+                method: 'post',
+                data,
+            }).then(response => {
+                // {
+                //     "code":200   200, 成功; 其他，失败
+                //     "msg":"success", 描述
+                //     "data": object   返回数据
+                // }
+                if (response.code === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(reject)
+        })
+>>>>>>> dev
     },
 }

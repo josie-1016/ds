@@ -6,8 +6,13 @@
     v-on:enter="animEnter"
     appear
   >
+<<<<<<< HEAD
     <Mine   v-if="isExist" key="0" data-index="0.3" />
     <Upload @refresh="refresh" key="1" data-index="0" />
+=======
+    <Mine   key="0" data-index="0.3" />
+    <Upload key="1" data-index="0" />
+>>>>>>> dev
   </transition-group>
 </template>
 
@@ -22,11 +27,14 @@ export default {
     Mine,
     Upload,
   },
+<<<<<<< HEAD
   data() {
     return {
       isExist:true,
     }
   },
+=======
+>>>>>>> dev
   methods: {
     beforeEnter: function (el) {
       if (el.dataset.index > -1) {
@@ -41,12 +49,15 @@ export default {
         done();
       }, delay);
     },
+<<<<<<< HEAD
     refresh(){
       this.isExist=false
       this.$nextTick(() => {
         this.isExist=true
       })
     },
+=======
+>>>>>>> dev
   },
 };
 </script>

@@ -1,6 +1,10 @@
 <template>
   <div class="logo">
+<<<<<<< HEAD
     <div>数据共享交换平台</div>
+=======
+    <div>供应链隐私保护平台</div>
+>>>>>>> dev
   </div>
 </template>
 

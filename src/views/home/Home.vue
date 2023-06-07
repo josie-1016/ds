@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+<<<<<<< HEAD
     <Banner />
     <!-- 属性管理-->
     <Attributes />
@@ -7,6 +8,11 @@
     <Organizations />
     <!-- 小节内容 -->
     <Files />
+=======
+    <Title />
+    <!-- 方案-->
+    <Scheme />
+>>>>>>> dev
     <!-- 底部 -->
     <Footer />
   </div>
@@ -14,6 +20,7 @@
 
 <script>
 // @ is an alias to /src
+<<<<<<< HEAD
 import Banner from "./_Banner.vue";
 import Files from "./_Files.vue";
 import Attributes from "./_Attributes.vue";
@@ -24,6 +31,16 @@ import { throttle } from "@/utils/helpers";
 export default {
   name: "Home",
   components: { Banner, Footer, Attributes, Organizations, Files },
+=======
+import Scheme from "./_Scheme"
+import Footer from "@/components/Footer.vue";
+import { throttle } from "@/utils/helpers";
+import Title from "@/views/home/_Title";
+
+export default {
+  name: "Home",
+  components: {Title, Footer, Scheme},
+>>>>>>> dev
   data() {
     return {};
   },
