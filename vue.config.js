@@ -15,8 +15,12 @@ module.exports = (options = {}) => ({
         }
       },
       '/cert/': {
+<<<<<<< HEAD
         // target: 'http://10.176.40.46/dpki/',
         target: 'http://127.0.0.1/dpki/',
+=======
+        target: 'http://10.176.40.46/dpki/',
+>>>>>>> dabe
         changeOrigin: true,
         pathRewrite: {
           '^/cert': ''

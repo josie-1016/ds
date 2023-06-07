@@ -1,45 +1,31 @@
 import request from '@/utils/request'
 import axios from 'axios'
 
-/** 文件管理
+/** 定向传输文件管理
  * 
- * 加密共享文件
- * 查询共享文件
- * 解密共享文件
+ * 加密定向传输文件
+ * 查询定向传输文件
+ * 解密定向传输文件
 **/
 
-export const fileApi = {
+export const SM2fileApi = {
     /**
-     * 加密共享文件
+     * 加密定向传输文件
      * @param {*} _data 来自前端的参数，用于发送请求，字段不一定和请求字段一致，需要转换一下
      * @returns Promise
      */
-<<<<<<< HEAD
-    encrypt: function ({ userName, tags, file, policy }) {
-=======
-    encrypt: function ({ userName, tags, file, policy,uploader }) {
->>>>>>> dabe
-        // file           用户名 String 
-        // tags           标签 List 
-        // file           明文文件 File 
-        // policy         共享策略 String (A AND B AND (C OR D))
-<<<<<<< HEAD
-=======
-        // uploader       文件上传者 String
->>>>>>> dabe
+    encrypt: function ({ userName, toName, file }) {
+        // userName         用户名 String 
+        // toName           接收者 String 
+        // file             明文文件 File 
         const data = new FormData();
-        data.append('fileName', userName);
+        data.append('userName', userName);
         data.append('file', file);
-        data.append('tags', tags);
-        data.append('policy', policy);
-<<<<<<< HEAD
-=======
-        data.append('uploader', uploader);
->>>>>>> dabe
+        data.append('toName', toName);
 
         return new Promise((resolve, reject) => {
             request({
-                url: '/content/upload',
+                url: '/SM2content/upload',
                 method: 'post',
                 headers: { 'Content-Type': 'multipart/form-data' },
                 data,
@@ -61,26 +47,26 @@ export const fileApi = {
     },
 
     /**
-     * 查询共享文件
+     * 查询定向传输文件
      * @param {*} _data 参数
      * @returns Promise
      */
-    files: function ({ userName, tag, size, bookmark }) {
-        const _data = { userName, tag, size, bookmark }
-        // fromUserName 分享人 String ，为 "" 空表示查询所有人的文件
-        // tag          标签   String 
+    files: function ({ userName, toName, size, bookmark }) {
+        const _data = { userName, toName, size, bookmark }
+        // userName     分享人 String ，为 "" 空表示查询所有人的文件
+        // toName       接受人   String ，为 "" 空表示查询所有人的文件
         // pageSize     每页显示条数 Int 默认为 10
         // bookmark     下一页的起点   String 默认为空
         const data = {
             fromUserName: _data.userName,
-            tag: _data.tag,
+            toName: _data.toName,
             pageSize: _data.size || 10,
             bookmark: _data.bookmark,
         }
 
         return new Promise((resolve, reject) => {
             request({
-                url: '/content/list',
+                url: '/SM2content/list',
                 method: 'get',
                 data,
                 params: data
@@ -119,61 +105,29 @@ export const fileApi = {
     },
 
     /**
-     * 解密共享文件
-     * @param {*} _data 参数
-     * @returns Promise
-     */
-    decrypt: function ({ user, cipher, sharedUser, fileName, tags }) {
-        // userName   解密用户
-        // fileName   解密文件名
-        // cipher     密文
-        // sharedUser 文件共享者
-        const data = {
-            userName: user,
-            fileName,
-            cipher,
-            tags,
-            sharedUser,
-        }
-
-        return new Promise((resolve, reject) => {
-            request({
-                url: '/content/decryption',
-                method: 'post',
-                data
-            }).then(response => {
-                // {
-                //     "code":200     200, 成功; 其他，失败
-                //     "msg":null,    描述
-                //     "data": content 共享文件内容
-                // }
-                if (response.code === 200) {
-                    resolve(response.data)
-                }
-                else {
-                    reject(response)
-                }
-            }).catch(reject)
-        })
-    },
-
-    /**
      * 下载共享文件
      * @param {*} _data 参数
      * @returns Promise
      */
-    download: function ({ fileName, sharedUser }) {
+    download: function ({ user, cipher, sharedUser, fileName, toName }) {
+        // user       解密用户
         // fileName   解密文件名
+        // cipher     密文
         // sharedUser 文件共享者
+        // toName     接收者
         const data = {
-            fileName,
-            sharedUser,
+            userName: user,
+            fileName:fileName,
+            cipher:cipher,
+            toName:toName,
+            sharedUser:sharedUser,
         }
+
 
         return new Promise((resolve, reject) => {
             axios.request({
                 baseURL: process.env.NODE_ENV === "development" ? process.env.VUE_APP_DEV_URL : process.env.VUE_APP_PRO_URL,
-                url: '/content/download',
+                url: '/SM2content/download',
                 method: 'get',
                 data,
                 params: data,
@@ -212,7 +166,7 @@ export const fileApi = {
         return new Promise((resolve, reject) => {
             axios.request({
                 baseURL: process.env.NODE_ENV === "development" ? process.env.VUE_APP_DEV_URL : process.env.VUE_APP_PRO_URL,
-                url: '/content/cipher',
+                url: '/SM2content/cipher',
                 method: 'get',
                 data,
                 params: data,
@@ -231,45 +185,5 @@ export const fileApi = {
                 }
             }).catch(reject)
         })
-<<<<<<< HEAD
-=======
-    },
-
-    /**
-     * 对共享文件验签
-     * @param {*} _data 来自前端的参数，用于发送请求，字段不一定和请求字段一致，需要转换一下
-     * @returns Promise
-     */
-    verifySignature: function ({ userName, fileName, sharedUser }) {
-        // userName   用户名
-        // fileName   解密文件名
-        // sharedUser 文件共享者
-        const data = {
-            userName,
-            fileName,
-            sharedUser,
-        }
-
-        return new Promise((resolve, reject) => {
-            request({
-                url: '/content/verify',
-                method: 'post',
-                data,
-                params: data,
-            }).then(response => {
-                // {
-                //     "code":200     200, 成功; 其他，失败
-                //     "msg":null,    描述
-                //     "data": content 共享文件内容
-                // }
-                if (response.code === 200) {
-                    resolve(response.data)
-                }
-                else {
-                    reject(response)
-                }
-            }).catch(reject)
-        })
->>>>>>> dabe
     }
 }

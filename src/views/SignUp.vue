@@ -1,5 +1,6 @@
 <template>
   <div class="sign">
+<<<<<<< HEAD
     <img class="bg" :src="imgHome('cargo.jpg')" />
     <div class="sign-container">
       <div class="login-form">
@@ -16,6 +17,28 @@
 
           <el-form-item prop="password">
             <el-input class="sign-input" v-model="signup.password" placeholder="请输入密码" show-password></el-input>
+=======
+    <div class="sign-container">
+      <el-card class="sign-card">
+        <div slot="header" class="clearfix">
+          <span>注册</span>
+          <router-link :to="{ name: 'login' }" class="sign-card-header--button">
+            前往登录
+          </router-link>
+        </div>
+
+        <el-form ref="signupForm" :model="signup" :rules="signupRules">
+          <el-form-item label="所在通道" prop="channel">
+            <el-input v-model="signup.channel" placeholder="请输入用户所在通道"></el-input>
+          </el-form-item>
+
+          <el-form-item label="用户名" prop="name">
+            <el-input v-model="signup.name" placeholder="请输入用户名"></el-input>
+          </el-form-item>
+
+          <el-form-item label="密码" prop="password">
+            <el-input v-model="signup.password" placeholder="请输入密码" show-password></el-input>
+>>>>>>> dabe
           </el-form-item>
 
           <el-form-item label="用户角色" prop="role" style="text-align: right">
@@ -27,12 +50,23 @@
           </el-form-item>
 
           <el-form-item>
+<<<<<<< HEAD
             <el-button class="custom-btn login-btn" :disabled="!agree" style="width: 100%" type="primary"
               @click="onSignupSubmit" :loading="loading">
+=======
+            <el-button
+              :disabled="!agree"
+              style="width: 100%"
+              type="primary"
+              @click="onSignupSubmit"
+              :loading="loading"
+            >
+>>>>>>> dabe
               注册
             </el-button>
           </el-form-item>
         </el-form>
+<<<<<<< HEAD
         <el-checkbox class="check" v-model="agree">我自愿承担使用本系统过程中可能出现的风险</el-checkbox>
         <div class="register-link">
           <router-link :to="{ name: 'login' }">
@@ -40,17 +74,27 @@
           </router-link>
         </div>
       </div>
+=======
+        <el-checkbox v-model="agree">我自愿承担使用本系统过程中可能出现的风险</el-checkbox>
+      </el-card>
+>>>>>>> dabe
     </div>
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { DynamicImage } from "@/mixins/DynamicImage";
+=======
+>>>>>>> dabe
 import { userApi } from "@/api/user.js";
 
 export default {
   name: "SignUp",
+<<<<<<< HEAD
   mixins: [DynamicImage("home/")],
+=======
+>>>>>>> dabe
   components: {},
 
   data() {
@@ -97,7 +141,11 @@ export default {
             });
             // 下载证书内容
             data.certificate && this.download(JSON.stringify(data.certificate));
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> dabe
             this.$router.push({
               name: "login",
               query: { name: this.signup.name },
@@ -130,6 +178,7 @@ export default {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 .sign {
   position: relative;
   height: calc(100vh - 104px);
@@ -247,6 +296,26 @@ export default {
 .sign-input>>>.el-input__inner:-internal-autofill-selected {
   -webkit-text-fill-color: #333 !important;
   transition: background-color 5000s ease-in-out 0s !important;
+=======
+.sign-container {
+  max-width: 600px;
+  margin: 60px auto;
+}
+
+.sign-card {
+  width: 400px;
+  margin: auto;
+}
+
+.sign-card-header--button {
+  float: right;
+  text-decoration: none;
+  color: #79bbff;
+}
+
+.sign-card-header--button:hover {
+  color: #409eff;
+>>>>>>> dabe
 }
 
 .tips {
@@ -255,5 +324,8 @@ export default {
   color: #606266;
   font-weight: 500;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dabe
 </style>

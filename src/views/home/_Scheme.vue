@@ -2,8 +2,13 @@
   <section class="section">
     <div class="section-title">方案</div>
     <div class="flex-cols">
+<<<<<<< HEAD
         <a v-for="(attr, index) in attrs" :key="index" class="flex-entry">
           <div class="entry-title" style="margin:0 auto;">{{ attr.title }}</div>
+=======
+        <a v-for="(attr, index) in attrs" :key="index" class="flex-entry fuck-underline" :href="attr.link">
+          <div class="entry-title" style="margin:0 auto;" >{{ attr.title }}</div>
+>>>>>>> dabe
           <!-- <div class="entry-desc">{{ attr.desc }}</div> -->
         </a>
     </div>
@@ -20,11 +25,19 @@ export default {
   data() {
     return {
       attrs: [
+<<<<<<< HEAD
         { title: "属性加密", desc: "" },
         { title: "门限加密", desc: "" },
         { title: "非对称密钥", desc: "" },
         { title: "环签名", desc: "" },
         { title: "零知识证明", desc: "" },
+=======
+        { title: "属性加密", desc: "" , link:"/#/user"},
+        { title: "门限加密", desc: "",link:"" },
+        { title: "国密", desc: "",link:"" },
+        { title: "环签名", desc: "",link:"" },
+        { title: "零知识证明", desc: "", link:"/#/user/numbers"},
+>>>>>>> dabe
       ]
     };
   },
@@ -55,4 +68,11 @@ export default {
   transition: 0.3s;
 }
 
+<<<<<<< HEAD
+=======
+.fuck-underline {
+  text-decoration: none !important;
+}
+
+>>>>>>> dabe
 </style>

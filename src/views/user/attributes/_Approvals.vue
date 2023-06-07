@@ -24,6 +24,7 @@
             </template>
           </el-table-column>
           <el-table-column show-overflow-tooltip prop="attrName" label="属性名"> </el-table-column>
+<<<<<<< HEAD
           <el-table-column show-overflow-tooltip prop="fromUid" label="申请人"> </el-table-column>
           <el-table-column show-overflow-tooltip prop="remark" label="申请备注"> </el-table-column>
 
@@ -40,12 +41,34 @@
           </el-table-column>
 
           <el-table-column prop="status" label="状态" width="100" align="right">
+=======
+          
+          <el-table-column prop="status" label="状态" width="100" align="center">
+>>>>>>> dabe
             <template slot-scope="scope">
               <el-tag :type="statusTypes[scope.row.status]" size="small">
                 {{ scope.row.status }}
               </el-tag>
             </template>
           </el-table-column>
+<<<<<<< HEAD
+=======
+          
+          <el-table-column show-overflow-tooltip prop="fromUid" label="申请人"> </el-table-column>
+          <el-table-column show-overflow-tooltip prop="remark" label="申请备注"> </el-table-column>
+
+          <el-table-column label="操作" width="250" align="right">
+            <template slot-scope="scope">
+              <el-button size="mini" type="warning" @click="revoke(scope.row)"> 撤销 </el-button>
+              <el-button v-if="scope.row.status===&quot;PENDING&quot;" size="mini" type="success" @click="agree(scope.row, true)">
+                同意
+              </el-button>
+              <el-button v-if="scope.row.status===&quot;PENDING&quot;" size="mini" type="danger" @click="agree(scope.row, false)">
+                拒绝
+              </el-button>
+            </template>
+          </el-table-column>
+>>>>>>> dabe
         </el-table>
       </div>
       <el-empty v-else :image-size="100" description="暂无待审批的属性"></el-empty>
@@ -58,7 +81,11 @@
       </el-form>
       <div slot="footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
+<<<<<<< HEAD
         <el-button type="primary" @click="approval">确 定</el-button>
+=======
+        <el-button v-loading.fullscreen.lock="fullscreenLoading" type="primary" @click="approval">确 定</el-button>
+>>>>>>> dabe
       </div>
     </el-dialog>
   </div>
@@ -125,6 +152,10 @@ export default {
         REVOKE: "revoke",
       },
       // selectedStatus: "PENDING",
+<<<<<<< HEAD
+=======
+      fullscreenLoading:false,
+>>>>>>> dabe
     };
   },
 
@@ -149,9 +180,17 @@ export default {
       this.dialogFormVisible = true;
     },
     approval() {
+<<<<<<< HEAD
       attrApi
         .approval({ ...this.params, ...this.form })
         .then(() => {
+=======
+      this.fullscreenLoading = true;
+      attrApi
+        .approval({ ...this.params, ...this.form })
+        .then(() => {
+          this.fullscreenLoading = false;
+>>>>>>> dabe
           this.$message({
             message: "审批成功",
             duration: 2 * 1000,
@@ -159,6 +198,10 @@ export default {
           });
         })
         .catch((e) => {
+<<<<<<< HEAD
+=======
+          this.fullscreenLoading = false;
+>>>>>>> dabe
           this.$message({
             message: e.message,
             duration: 2 * 1000,
@@ -167,6 +210,13 @@ export default {
         })
         .finally(() => {
           this.dialogFormVisible = false;
+<<<<<<< HEAD
+=======
+          // this.queryWithStatus(query, "ALL").then((res) => {
+          //   this.attributes = res;
+          // });
+          location.reload();
+>>>>>>> dabe
         });
     },
     revoke(application) {

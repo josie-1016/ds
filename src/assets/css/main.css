@@ -1,6 +1,7 @@
 :root {
     --body-background: #f1f1f2;
 
+<<<<<<< HEAD
     --body-margin: 5%;
     --row-distance: 10px;
     --content-padding: 16px;
@@ -8,16 +9,29 @@
 
     --prime-color-0: #1e3799;
     --prime-color-1:#4a69bd;
+=======
+    --body-margin: 32px;
+    --row-distance: 10px;
+    --content-padding: 16px;
+    --header-height: 60px;
+>>>>>>> dabe
 
     --ft-color-0: black;
     --ft-color-1: gray;
     --ft-color-2: rgb(63, 63, 63);
+<<<<<<< HEAD
     --ft-color-light: white;
+=======
+>>>>>>> dabe
 
     --bg-color-0: white;
     --bg-color-1: #d4d4d4;
     --bg-color-2: #f1f1f2;
+<<<<<<< HEAD
     --bg-color-dark: #252436;
+=======
+    --bg-color-dark: hsl(210, 8%, 15%);
+>>>>>>> dabe
 }
 
 html {

@@ -18,8 +18,32 @@
         <el-form-item prop="tags" label="标签">
           <el-input v-model="form.tags" placeholder="城市 系统 业务 备注（空格隔开）"></el-input>
         </el-form-item>
+<<<<<<< HEAD
         <el-form-item>
           <el-button type="primary" @click="upload">上传到服务器</el-button>
+=======
+        <el-form-item prop="uploader" label="上传者">
+          <el-select
+            v-model="form.uploader"
+            placeholder="请选择"
+            size="middle"
+            @change="selectMethod"
+          >
+          <el-option
+            v-for="(item, index) in Uploaderoptions"
+            :key="index"
+            :label="item"
+            :value="item"
+          >
+          </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item prop="org" label="上传组织" v-if="form.uploader=='组织'">
+          <el-input v-model="form.org" placeholder="组织名"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button v-loading.fullscreen.lock="fullscreenLoading" type="primary" @click="upload">上传到服务器</el-button>
+>>>>>>> dabe
         </el-form-item>
       </el-form>
     </div>
@@ -40,6 +64,7 @@ export default {
   },
   data() {
     return {
+<<<<<<< HEAD
       form: {
         tags: "",
         policy: "",
@@ -48,6 +73,22 @@ export default {
       uploadRules: {
         policy: [{ required: true, trigger: "blur", message: "请填写上传策略" }],
         tags: [{ required: true, trigger: "blur", message: "请设置标签" }],
+=======
+      fullscreenLoading:false,
+      form: {
+        tags: "",
+        policy: "",
+        uploader: "",
+        org:"",
+      },
+      options: ["shanghai", "myc", "edu", "test"],
+      Uploaderoptions: ["用户", "组织"],
+      uploadRules: {
+        policy: [{ required: true, trigger: "blur", message: "请填写上传策略" }],
+        tags: [{ required: true, trigger: "blur", message: "请设置标签" }],
+        uploader: [{ required: true, trigger: "blur", message: "请设置上传者" }],
+        org: [{ required: true, trigger: "blur", message: "请设置上传组织" }],
+>>>>>>> dabe
       },
     };
   },
@@ -63,6 +104,12 @@ export default {
     handleRemove(file) {
       this.$refs.upload.abort(file);
     },
+<<<<<<< HEAD
+=======
+    selectMethod(uploader){
+      this.uploader=uploader;
+    },
+>>>>>>> dabe
     upload() {
       const file = document.querySelector("input[type=file]").files[0];
       console.log(file);
@@ -92,18 +139,38 @@ export default {
 
         const userName = getters.userName();
         const policy = this.form.policy;
+<<<<<<< HEAD
 
         fileApi
           .encrypt({ file, userName, tags, policy })
           .then((res) => {
+=======
+        var uploader="";
+        if (this.form.uploader=="用户"){
+          uploader=getters.userName();
+        }else{
+          uploader=this.form.org;
+        }
+        this.fullscreenLoading = true;
+        fileApi
+          .encrypt({ file, userName, tags, policy, uploader })
+          .then(() => {
+>>>>>>> dabe
             Message({
               message: "上传成功",
               duration: 5000,
               type: "success",
             });
+<<<<<<< HEAD
             console.log(res);
           })
           .catch((e) => {
+=======
+            this.$emit('refresh');
+          })
+          .catch((e) => {
+            this.fullscreenLoading = false;
+>>>>>>> dabe
             Message({
               message: e.message,
               duration: 5000,

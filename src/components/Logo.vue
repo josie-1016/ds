@@ -1,7 +1,11 @@
 <template>
   <div class="logo">
+<<<<<<< HEAD
     <img src="@/assets/images/LogoK.png" />
     <div>供应链数据共享平台</div>
+=======
+    <div>供应链隐私保护平台</div>
+>>>>>>> dabe
   </div>
 </template>
 
@@ -34,8 +38,11 @@ export default {
   font-weight: bold;
   margin-left: 12px;
 }
+<<<<<<< HEAD
 
 .logo > img {
   height: 60px;
 }
+=======
+>>>>>>> dabe
 </style>

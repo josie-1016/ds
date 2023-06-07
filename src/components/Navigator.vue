@@ -9,9 +9,12 @@
       </el-menu> -->
     </div>
     <div class="options">
+<<<<<<< HEAD
       <router-link to="/">
         <button> 首页 </button>
       </router-link>
+=======
+>>>>>>> dabe
 
       <router-link to="/allfiles">
         <button> 文件仓库 </button>
@@ -47,7 +50,11 @@ export default {
 
 <style scoped>
 .nav {
+<<<<<<< HEAD
   height: var(--header-height, 104px);
+=======
+  height: var(--header-height, 60px);
+>>>>>>> dabe
   padding: 0 var(--body-margin, 32px);
   display: flex;
   background-color: var(--bg-color-0, white);
@@ -88,7 +95,11 @@ button {
   color: var(--ft-color-0, #ececec);
   border: none;
   height: 32px;
+<<<<<<< HEAD
   font-size: 24px;
+=======
+  font-size: 14px;
+>>>>>>> dabe
   padding: 0 11px;
   line-height: 30px;
   border-width: 0;
@@ -104,6 +115,10 @@ button {
 }
 
 button:hover {
+<<<<<<< HEAD
   color: var(--prime-color-0, white);;
+=======
+  color: var(--ft-color-1, white);;
+>>>>>>> dabe
 }
 </style>

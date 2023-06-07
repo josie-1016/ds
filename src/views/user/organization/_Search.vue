@@ -146,6 +146,10 @@ export default {
       orgApi
         .approvalAttr({ userName, orgName, attrName })
         .then(() => {
+<<<<<<< HEAD
+=======
+          this.searchAttr();
+>>>>>>> dabe
           this.$message({
             message: "提交成功",
             duration: 2 * 1000,

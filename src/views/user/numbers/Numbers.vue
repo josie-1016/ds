@@ -6,13 +6,9 @@
     v-on:enter="animEnter"
     appear
   >
-<<<<<<< HEAD
     <Mine   key="0" data-index="0.3" />
     <Upload key="1" data-index="0" />
-=======
-    <Mine   v-if="isExist" key="0" data-index="0.3" />
-    <Upload @refresh="refresh" key="1" data-index="0" />
->>>>>>> dabe
+    <Search key="2" data-index="0" />
   </transition-group>
 </template>
 
@@ -20,21 +16,20 @@
 // @ is an alias to /src
 import Mine from "./_Mine.vue";
 import Upload from "./_Upload.vue";
+import Search from "@/views/user/numbers/_Search";
 
 export default {
-  name: "Files",
+  name: "Numbers",
   components: {
+    Search,
     Mine,
     Upload,
   },
-<<<<<<< HEAD
-=======
-  data() {
-    return {
-      isExist:true,
-    }
-  },
->>>>>>> dabe
+  // data(){
+  //   return{
+  //     isShowCheckbox: false,
+  //   }
+  // },
   methods: {
     beforeEnter: function (el) {
       if (el.dataset.index > -1) {
@@ -49,15 +44,6 @@ export default {
         done();
       }, delay);
     },
-<<<<<<< HEAD
-=======
-    refresh(){
-      this.isExist=false
-      this.$nextTick(() => {
-        this.isExist=true
-      })
-    },
->>>>>>> dabe
   },
 };
 </script>

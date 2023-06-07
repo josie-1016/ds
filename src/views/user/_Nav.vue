@@ -31,6 +31,19 @@ export default {
           title: "文件",
         },
         {
+<<<<<<< HEAD
+=======
+          to: "/user/numbers",
+          name: "numbers",
+          title: "数额",
+        },
+        {
+          to: "/user/SM2files",
+          name: "SM2files",
+          title: "SM2文件",
+        },
+        {
+>>>>>>> dabe
           to: "/user/organizations",
           name: "organizations",
           title: "组织",
