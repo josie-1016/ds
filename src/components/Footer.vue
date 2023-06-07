@@ -31,11 +31,7 @@ export default {
 .footer-content {
   padding: 36px var(--body-margin, 32px);
   font-size: 12px;
-<<<<<<< HEAD
   color: var(--ft-color-light,white);
-=======
-  color: gray;
->>>>>>> dabe
   background-color: var(--bg-color-dark, #091629);
   display: grid;
   gap: 24px;

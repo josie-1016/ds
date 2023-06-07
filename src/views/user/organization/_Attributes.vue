@@ -2,11 +2,7 @@
   <Card title="组织属性">
     <template v-slot:op>
       <el-input size="medium" placeholder="请输入要声明的属性" v-model="newAttr">
-<<<<<<< HEAD
-        <el-button slot="append" @click="generateAttr">声明新属性</el-button>
-=======
         <el-button v-loading.fullscreen.lock="fullscreenLoading" slot="append" @click="generateAttr">声明新属性</el-button>
->>>>>>> dabe
       </el-input>
     </template>
     <el-table :data="getAttributes(info)" style="width: 100%">
@@ -34,10 +30,7 @@ export default {
   data() {
     return {
       newAttr: "",
-<<<<<<< HEAD
-=======
       fullscreenLoading:false,
->>>>>>> dabe
     };
   },
 
@@ -61,18 +54,12 @@ export default {
       const userName = getters.userName();
       const orgName = this.info.orgId;
       const attrName = `${orgName}:${this.newAttr}`;
-<<<<<<< HEAD
-=======
       this.fullscreenLoading = true;
->>>>>>> dabe
 
       orgApi
         .declareAttr({ userName, orgName, attrName })
         .then(() => {
-<<<<<<< HEAD
-=======
           this.fullscreenLoading = false;
->>>>>>> dabe
           this.$message({
             message: "创建成功",
             duration: 2 * 1000,
@@ -80,22 +67,15 @@ export default {
           });
         })
         .catch((e) => {
-<<<<<<< HEAD
-=======
           this.fullscreenLoading = false;
->>>>>>> dabe
           this.$message({
             message: e.message,
             type: "error",
           });
-<<<<<<< HEAD
-        });
-=======
         })
         .finally(()=>{
           this.newAttr = "";
         })
->>>>>>> dabe
     },
   },
 };

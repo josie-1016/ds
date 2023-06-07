@@ -14,28 +14,18 @@ export const fileApi = {
      * @param {*} _data 来自前端的参数，用于发送请求，字段不一定和请求字段一致，需要转换一下
      * @returns Promise
      */
-<<<<<<< HEAD
-    encrypt: function ({ userName, tags, file, policy }) {
-=======
     encrypt: function ({ userName, tags, file, policy,uploader }) {
->>>>>>> dabe
         // file           用户名 String 
         // tags           标签 List 
         // file           明文文件 File 
         // policy         共享策略 String (A AND B AND (C OR D))
-<<<<<<< HEAD
-=======
         // uploader       文件上传者 String
->>>>>>> dabe
         const data = new FormData();
         data.append('fileName', userName);
         data.append('file', file);
         data.append('tags', tags);
         data.append('policy', policy);
-<<<<<<< HEAD
-=======
         data.append('uploader', uploader);
->>>>>>> dabe
 
         return new Promise((resolve, reject) => {
             request({
@@ -231,8 +221,6 @@ export const fileApi = {
                 }
             }).catch(reject)
         })
-<<<<<<< HEAD
-=======
     },
 
     /**
@@ -270,6 +258,5 @@ export const fileApi = {
                 }
             }).catch(reject)
         })
->>>>>>> dabe
     }
 }

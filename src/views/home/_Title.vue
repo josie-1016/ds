@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <section class="section">
     <div class="section-wrapper">
       <h1 class="title wrap">
@@ -7,13 +6,6 @@
       </h1>
 
 
-=======
-  <section class="section bg" :style="{backgroundImage: 'url('+bgImage+')'}">
-    <div class="section-wrapper">
-      <h1 class="title wrap">
-        <span>Innovation.</span><br>Security.<br>Effect.
-      </h1>
->>>>>>> dabe
       <div class="wrap">
         <router-link v-if="login" to="/user" class="fuck-underline">
           <div class="button-wrapper">
@@ -57,10 +49,6 @@ export default {
   },
   data() {
     return {
-<<<<<<< HEAD
-=======
-      bgImage: require('@/assets/images/home/banner-2.png')
->>>>>>> dabe
     };
   },
 };
@@ -88,14 +76,6 @@ h1 {
 .fuck-underline {
   text-decoration: none !important;
 }
-<<<<<<< HEAD
-
-=======
-.bg{
-  background-size: cover;
-  padding: 30px;
-}
->>>>>>> dabe
 .button-wrapper {
   display: flex;
   position: relative;

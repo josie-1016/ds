@@ -1,20 +1,14 @@
 <template>
   <div class="home">
-<<<<<<< HEAD
-    <!-- 标题 -->
-    <Title />
-    <!-- 方案 -->
-=======
-    <Banner />
+    <!-- <Banner /> -->
     <!-- 属性管理-->
-    <Attributes />
+    <!-- <Attributes /> -->
     <!-- 小节内容 -->
-    <Organizations />
+    <!-- <Organizations /> -->
     <!-- 小节内容 -->
-    <Files />
+    <!-- <Files /> -->
     <Title />
     <!-- 方案-->
->>>>>>> dabe
     <Scheme />
     <!-- 底部 -->
     <Footer />
@@ -23,29 +17,18 @@
 
 <script>
 // @ is an alias to /src
-<<<<<<< HEAD
 // import Banner from "./_Banner.vue";
-import Scheme from "./_Scheme.vue";
-import Footer from "@/components/Footer.vue";
-import Title from "./_Title.vue";
-=======
-import Banner from "./_Banner.vue";
-import Files from "./_Files.vue";
-import Attributes from "./_Attributes.vue";
-import Organizations from "./_Organizations.vue";
+// import Files from "./_Files.vue";
+// import Attributes from "./_Attributes.vue";
+// import Organizations from "./_Organizations.vue";
 import Footer from "@/components/Footer.vue";
 import Title from "@/views/home/_Title";
 import Scheme from "./_Scheme"
->>>>>>> dabe
 import { throttle } from "@/utils/helpers";
 
 export default {
   name: "Home",
-<<<<<<< HEAD
-  components: { Scheme, Footer, Title },
-=======
-  components: { Banner, Footer, Attributes, Organizations, Files, Title, Scheme},
->>>>>>> dabe
+  components: { Footer, Title, Scheme},
   data() {
     return {};
   },
@@ -82,11 +65,7 @@ section:nth-child(odd) {
 }
 
 .section {
-<<<<<<< HEAD
-  padding: 60px var(--body-margin, 32px);
-=======
   padding: 36px var(--body-margin, 32px);
->>>>>>> dabe
 }
 
 .entry-title {

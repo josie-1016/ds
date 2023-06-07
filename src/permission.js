@@ -13,18 +13,11 @@ const whiteList = [
     '/',
     '/signup',
     loginUrl,
-<<<<<<< HEAD
-]
-
-// 自动登录
-autoLogin()
-=======
     '/certificates'
 ]
 
 // 自动登录
 autoLogin().catch(console.log)
->>>>>>> dabe
 
 router.beforeEach(async (to, from, next) => {
     

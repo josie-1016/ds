@@ -29,8 +29,6 @@ const routes = [
     component: () => import('../views/AllFiles.vue'),
   },
   {
-<<<<<<< HEAD
-=======
     path: '/certificates',
     name: 'certificates',
     component: () => import('../views/certificates/Certificates.vue'),
@@ -53,7 +51,6 @@ const routes = [
     ]
   },
   {
->>>>>>> dabe
     path: '/user',
     name: 'user',
     component: () => import('../views/user/User.vue'),
@@ -70,14 +67,11 @@ const routes = [
         component: () => import('../views/user/files/Files.vue'),
       },
       {
-<<<<<<< HEAD
-=======
         path: 'numbers',
         name: 'numbers',
         component: () => import('../views/user/numbers/Numbers.vue'),
       },
       {
->>>>>>> dabe
         path: 'organizations',
         name: 'organizations',
         component: () => import('../views/user/organizations/Organizations.vue'),
@@ -87,14 +81,11 @@ const routes = [
         name: 'organization',
         component: () => import('../views/user/organization/Organization.vue'),
       },
-<<<<<<< HEAD
-=======
       {
         path: 'SM2files',
         name: 'SM2files',
         component: () => import('../views/user/SM2files/SM2files.vue'),
       },
->>>>>>> dabe
     ]
   },
 ]

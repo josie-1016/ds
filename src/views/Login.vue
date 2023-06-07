@@ -1,6 +1,5 @@
 <template>
   <div class="sign">
-<<<<<<< HEAD
     <img class="bg" :src="imgHome('cargo.jpg')" />
     <div class="sign-container">
       <div class="login-form">
@@ -19,41 +18,12 @@
           <el-form-item prop="cert" v-else>
             <el-input class="sign-input" v-model="login.cert" v-show="false"></el-input>
             <el-button class="custom-btn" type="text" @click="selectFile"> 上传证书文件 </el-button>
-=======
-    <div class="sign-container">
-      <el-card class="sign-card">
-        <div slot="header" class="clearfix">
-          <span>登录</span>
-          <router-link :to="{ name: 'signup' }" class="sign-card-header--button">
-            前往注册
-          </router-link>
-        </div>
-
-        <el-form ref="loginForm" :model="login" :rules="loginRules" label-position="top">
-          <el-form-item prop="name" label="用户名">
-            <el-input v-model="login.name" placeholder="请输入用户名" maxlength="11"></el-input>
-          </el-form-item>
-
-          <el-form-item prop="password" label="密码" v-if="useCert === false">
-            <el-input
-              v-model="login.password"
-              placeholder="请输入密码"
-              show-password
-              @keyup.enter.native="onLoginSubmit"
-            ></el-input>
-          </el-form-item>
-
-          <el-form-item prop="cert" label="证书" v-else>
-            <el-input v-model="login.cert" v-show="false"></el-input>
-            <el-button @click="selectFile"> 上传证书文件 </el-button>
->>>>>>> dabe
             <div class="text">
               {{ certFileName }}
             </div>
           </el-form-item>
 
           <el-form-item>
-<<<<<<< HEAD
             或者
             <el-button class="custom-btn" v-if="useCert === false" type="text" @click="useCert = true">使用证书登录</el-button>
             <el-button class="custom-btn" v-else type="text" @click="useCert = false">使用密码登录</el-button>
@@ -61,47 +31,27 @@
 
           <el-form-item>
             <el-button class="custom-btn login-btn" style="width: 100%" @click="onLoginSubmit" :loading="loading">
-=======
-            <el-button v-if="useCert === false" type="text" @click="useCert = true"
-              >使用证书登录</el-button
-            >
-            <el-button v-else type="text" @click="useCert = false">使用密码登录</el-button>
-          </el-form-item>
-
-          <el-form-item>
-            <el-button style="width: 100%" type="primary" @click="onLoginSubmit" :loading="loading">
->>>>>>> dabe
               登录
             </el-button>
           </el-form-item>
         </el-form>
-<<<<<<< HEAD
         <div class="register-link">
           <router-link :to="{ name: 'signup' }">
             前往注册
           </router-link>
         </div>
       </div>
-=======
-      </el-card>
->>>>>>> dabe
     </div>
   </div>
 </template>
 
 <script>
 import { actions } from "../store/actions";
-<<<<<<< HEAD
 import { DynamicImage } from "@/mixins/DynamicImage";
 
 export default {
   name: "Login",
   mixins: [DynamicImage("home/")],
-=======
-
-export default {
-  name: "Login",
->>>>>>> dabe
   components: {},
 
   data() {
@@ -191,7 +141,6 @@ export default {
 </script>
 
 <style scoped>
-<<<<<<< HEAD
 .sign {
   position: relative;
   height: calc(100vh - 104px);
@@ -206,37 +155,16 @@ export default {
   object-fit: cover;
 }
 
-=======
->>>>>>> dabe
 .sign-container {
   max-width: 600px;
   margin: 60px auto;
 }
 
-<<<<<<< HEAD
-=======
-.sign-card {
-  width: 400px;
-  margin: auto;
-}
-
-.sign-card-header--button {
-  float: right;
-  text-decoration: none;
-  color: #79bbff;
-}
-
-.sign-card-header--button:hover {
-  color: #409eff;
-}
-
->>>>>>> dabe
 .text {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-<<<<<<< HEAD
 
 .login-form {
   position: relative;
@@ -335,6 +263,4 @@ export default {
   -webkit-text-fill-color: #333 !important;
   transition: background-color 5000s ease-in-out 0s !important;
 }
-=======
->>>>>>> dabe
 </style>

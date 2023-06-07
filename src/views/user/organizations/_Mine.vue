@@ -18,11 +18,7 @@
 
           <el-table-column label="操作" width="160" align="right">
             <template slot-scope="scope">
-<<<<<<< HEAD
-              <el-button size="mini" @click="submitPartPK(scope.row)"> 提交组织秘密 </el-button>
-=======
               <el-button v-loading.fullscreen.lock="fullscreenLoading" size="mini" @click="submitPartPK(scope.row)"> 提交组织秘密 </el-button>
->>>>>>> dabe
             </template>
           </el-table-column>
         </el-table>
@@ -41,20 +37,12 @@
         </el-form-item>
 
         <el-form-item prop="userStr" label="其它成员">
-<<<<<<< HEAD
-          <el-input v-model="form.userStr" placeholder="请输入除您之外包含的其它成员"></el-input>
-=======
           <el-input v-model="form.userStr" placeholder="请输入除您之外包含的其它成员 以空格区分成员名"></el-input>
->>>>>>> dabe
         </el-form-item>
       </el-form>
       <div slot="footer">
         <el-button @click="applyDialogFormVisible = false">取 消</el-button>
-<<<<<<< HEAD
-        <el-button type="primary" @click="applyForOrg">确 定</el-button>
-=======
         <el-button v-loading.fullscreen.lock="fullscreenLoading" type="primary" @click="applyForOrg">确 定</el-button>
->>>>>>> dabe
       </div>
     </el-dialog>
 
@@ -66,11 +54,7 @@
       </el-form>
       <div slot="footer">
         <el-button @click="joinDialogFormVisible = false">取 消</el-button>
-<<<<<<< HEAD
-        <el-button type="primary" @click="joinOrg">确 定</el-button>
-=======
         <el-button v-loading.fullscreen.lock="fullscreenLoading" type="primary" @click="joinOrg">确 定</el-button>
->>>>>>> dabe
       </div>
     </el-dialog>
   </div>
@@ -94,10 +78,7 @@ export default {
 
   data() {
     return {
-<<<<<<< HEAD
-=======
       fullscreenLoading:false,
->>>>>>> dabe
       applyDialogFormVisible: false,
       form: {
         threshold: "",
@@ -141,10 +122,7 @@ export default {
         const { threshold, userStr, orgName } = this.form;
         const users = userStr.split(" ");
         users.push(userName);
-<<<<<<< HEAD
-=======
         this.fullscreenLoading = true;
->>>>>>> dabe
 
         orgApi
           .create({
@@ -155,15 +133,6 @@ export default {
             usersNum: users.length,
           })
           .then(() => {
-<<<<<<< HEAD
-            this.$message({
-              message: "申请成功",
-              duration: 2 * 1000,
-              type: "success",
-            });
-          })
-          .catch((e) => {
-=======
             this.fullscreenLoading = false;
             this.$message({
               message: "申请组织创建成功",
@@ -188,7 +157,6 @@ export default {
           })
           .catch((e) => {
             this.fullscreenLoading = false;
->>>>>>> dabe
             this.$message({
               message: e.message,
               type: "error",
@@ -208,18 +176,12 @@ export default {
         if (!valid) return;
 
         const { orgName } = this.joinForm;
-<<<<<<< HEAD
-=======
         this.fullscreenLoading = true;
->>>>>>> dabe
 
         orgApi
           .join({ userName, orgName })
           .then(() => {
-<<<<<<< HEAD
-=======
             this.fullscreenLoading = false;
->>>>>>> dabe
             this.$message({
               message: "加入成功",
               duration: 2 * 1000,
@@ -227,40 +189,26 @@ export default {
             });
           })
           .catch((e) => {
-<<<<<<< HEAD
-=======
             this.fullscreenLoading = false;
->>>>>>> dabe
             this.$message({
               message: e.message,
               type: "error",
             });
           })
           .finally(() => {
-<<<<<<< HEAD
-            this.applyDialogFormVisible = false;
-=======
             this.joinDialogFormVisible = false;
             location.reload();
->>>>>>> dabe
           });
       });
     },
 
     submitPartPK(org) {
       const userName = getters.userName();
-<<<<<<< HEAD
-
-      orgApi
-        .submitppk({ userName, orgName: org.name })
-        .then(() => {
-=======
       this.fullscreenLoading = true;
       orgApi
         .submitppk({ userName, orgName: org.name })
         .then(() => {
           this.fullscreenLoading = false;
->>>>>>> dabe
           this.$message({
             message: "提交成功",
             duration: 2 * 1000,
@@ -270,10 +218,7 @@ export default {
           this.trycompleteOrgPK(userName, org.name);
         })
         .catch((e) => {
-<<<<<<< HEAD
-=======
           this.fullscreenLoading = false;
->>>>>>> dabe
           this.$message({
             message: e.message,
             type: "error",
@@ -290,10 +235,7 @@ export default {
             duration: 2 * 1000,
             type: "success",
           });
-<<<<<<< HEAD
-=======
           location.reload();
->>>>>>> dabe
         })
         .catch(console.log);
     },

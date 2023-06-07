@@ -9,11 +9,7 @@
       </template>
       <div v-if="appliedAttrMap">
         <el-table :data="formatAttributes(appliedAttrMap)" style="width: 100%">
-<<<<<<< HEAD
-          <el-table-column show-overflow-tooltip prop="name" label="属性名"> </el-table-column>
-=======
           <el-table-column show-overflow-tooltip prop="name" label="属性名" width="300"> </el-table-column>
->>>>>>> dabe
           <el-table-column show-overflow-tooltip prop="value" label="属性公钥"> </el-table-column>
         </el-table>
       </div>
@@ -45,11 +41,7 @@
       </el-form>
       <div slot="footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-<<<<<<< HEAD
-        <el-button type="primary" @click="applyForAttr">确 定</el-button>
-=======
         <el-button v-loading.fullscreen.lock="fullscreenLoading" type="primary" @click="applyForAttr">确 定</el-button>
->>>>>>> dabe
       </div>
     </el-dialog>
   </div>
@@ -74,10 +66,7 @@ export default {
 
   mounted() {
     // console.log(getters.properties(["appliedAttrMap"]));
-<<<<<<< HEAD
-=======
     this.syncApplications();
->>>>>>> dabe
   },
 
   data() {
@@ -100,10 +89,7 @@ export default {
       applyRules: {
         attr: [{ required: true, trigger: "blur", message: "属性名不能为空" }],
       },
-<<<<<<< HEAD
-=======
       fullscreenLoading:false,
->>>>>>> dabe
     };
   },
 
@@ -133,11 +119,7 @@ export default {
         const { remark, role, belongs } = this.form;
         emm[role] = belongs;
         const attr = `${belongs}:${this.form.attr}`;
-<<<<<<< HEAD
-
-=======
         this.fullscreenLoading=true;
->>>>>>> dabe
         attrApi
           .apply({
             attr,
@@ -146,10 +128,7 @@ export default {
             ...emm,
           })
           .then(() => {
-<<<<<<< HEAD
-=======
             this.fullscreenLoading=false;
->>>>>>> dabe
             this.$message({
               message: "申请成功",
               duration: 2 * 1000,
@@ -157,10 +136,7 @@ export default {
             });
           })
           .catch((e) => {
-<<<<<<< HEAD
-=======
             this.fullscreenLoading=false;
->>>>>>> dabe
             this.$message({
               message: e.message,
               type: "error",
@@ -177,11 +153,7 @@ export default {
         .sync()
         .then(() => {
           this.$message({
-<<<<<<< HEAD
-            message: "同步成功",
-=======
             message: "属性同步成功",
->>>>>>> dabe
             duration: 2 * 1000,
             type: "success",
           });

@@ -1,16 +1,9 @@
 <template>
   <el-table :data="files">
-<<<<<<< HEAD
     <el-table-column show-overflow-tooltip label="文件名" prop="fileName" />
     <el-table-column show-overflow-tooltip label="密文哈希" prop="cipher" />
     <el-table-column show-overflow-tooltip label="上传者" prop="sharedUser" />
     <el-table-column show-overflow-tooltip label="上传时间" prop="timeStamp" width="250">
-=======
-    <el-table-column show-overflow-tooltip label="文件名" prop="fileName"/>
-    <el-table-column show-overflow-tooltip label="密文哈希" prop="cipher"/>
-    <el-table-column show-overflow-tooltip label="上传者" prop="sharedUser" />
-    <el-table-column show-overflow-tooltip label="上传时间" prop="timeStamp" width="200">
->>>>>>> dabe
       <template slot-scope="scope">
         {{ scope.row.timeStamp }}
       </template>
@@ -30,14 +23,9 @@
       </template>
     </el-table-column>
 
-<<<<<<< HEAD
-    <el-table-column label="操作" align="right" width="200">
-      <template slot-scope="scope">
-=======
     <el-table-column label="操作" align="right" width="300">
       <template slot-scope="scope">
         <el-button size="mini" type="success" @click="verifySignature(scope.row)"> 验签 </el-button>
->>>>>>> dabe
         <el-button size="mini" type="success" @click="decryDownload(scope.row)">
           解密下载
         </el-button>
@@ -55,11 +43,8 @@ import { FileDownloader } from "@/mixins/Download";
 import { FilterEmpty } from "@/mixins/FilterEmpty";
 import { TimeFormat } from "@/mixins/TimeFormat";
 
-<<<<<<< HEAD
-=======
 import { Message } from "element-ui";
 
->>>>>>> dabe
 export default {
   name: "FilesTable",
   mixins: [FileDownloader, FilterEmpty, TimeFormat],
@@ -117,8 +102,6 @@ export default {
           });
         });
     },
-<<<<<<< HEAD
-=======
     verifySignature(scope){
       const userName = getters.userName();
       const { sharedUser, fileName } = scope;
@@ -141,7 +124,6 @@ export default {
             });
           });
     },
->>>>>>> dabe
   },
 };
 </script>

@@ -50,11 +50,7 @@ export default {
   background-color: var(--bg-color-0, white);
   transition: ease 0.6s all;
   box-shadow: 0 4px 12px #00000014, 0 0 1px #0100001a;
-<<<<<<< HEAD
   height: 104px !important;
 }
 
-=======
-}
->>>>>>> dabe
 </style>
