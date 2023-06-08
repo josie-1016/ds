@@ -13,6 +13,7 @@
       <Attributes key="5" data-index="0.5" :info="info" />
       <Search key="4" data-index="0.5" :info="info" />
     </template>
+    <ThresholdSearch key="6" data-index="0.5" :info="info"/>
   </transition-group>
 </template>
 
@@ -23,7 +24,7 @@ import Search from "./_Search.vue";
 import Members from "./_Members.vue";
 import Attributes from "./_Attributes.vue";
 import { orgApi } from "@/api/organizations";
-
+import ThresholdSearch from "./_ThresholdSearch.vue";
 export default {
   name: "Organization",
   components: {
@@ -31,6 +32,7 @@ export default {
     Search,
     Members,
     Attributes,
+    ThresholdSearch
   },
   watch: {
     $route(to) {
@@ -57,6 +59,7 @@ export default {
         })
         .then((org) => {
           this.info = org;
+          console.log(this.info);
           if (org && org.status === "SUCCESS") {
             this.success = true;
             // 如果是成功创建的组织，试图获取详细信息

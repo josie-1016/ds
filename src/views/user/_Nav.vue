@@ -36,6 +36,11 @@ export default {
           title: "数额",
         },
         {
+          to: "/user/threshold",
+          name:"thresholds",
+          title:"门限",
+        },
+        {
           to: "/user/organizations",
           name: "organizations",
           title: "组织",
