@@ -6,13 +6,8 @@
         <div class="login-title">注册</div>
 
         <el-form ref="signupForm" :model="signup" :rules="signupRules">
-<<<<<<< HEAD
-          <el-form-item prop="channel">
-            <el-input class="sign-input" v-model="signup.channel" placeholder="请输入用户所在通道"></el-input>
-=======
           <el-form-item label="所在通道" prop="channel" placeholder ="myc">
             <el-input v-model="signup.channel" placeholder="请输入用户所在通道"></el-input>
->>>>>>> Threshold
           </el-form-item>
 
           <el-form-item prop="name">

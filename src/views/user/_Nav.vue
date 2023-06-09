@@ -36,15 +36,14 @@ export default {
           title: "数额",
         },
         {
-<<<<<<< HEAD
           to: "/user/SM2files",
           name: "SM2files",
           title: "SM2文件",
-=======
+        },
+        {
           to: "/user/threshold",
           name:"thresholds",
           title:"门限",
->>>>>>> Threshold
         },
         {
           to: "/user/organizations",

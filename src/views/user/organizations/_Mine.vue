@@ -18,13 +18,9 @@
 
           <el-table-column label="操作" width="480" align="right">
             <template slot-scope="scope">
-<<<<<<< HEAD
-              <el-button v-loading.fullscreen.lock="fullscreenLoading" size="mini" @click="submitPartPK(scope.row)"> 提交组织秘密 </el-button>
-=======
               <el-button size="mini" @click="approveThresholdPartSK(scope.row)"> 同意门限公钥生成 </el-button>
               <el-button size="mini" @click="submitThresholdPartSk(scope.row)"> 申请门限公钥生成 </el-button>
               <el-button size="mini" @click="submitPartPK(scope.row)"> 提交组织秘密 </el-button>
->>>>>>> Threshold
             </template>
           </el-table-column>
         </el-table>
