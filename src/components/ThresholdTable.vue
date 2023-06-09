@@ -1,0 +1,124 @@
+<template>
+    <el-table :data="files">
+      <el-table-column show-overflow-tooltip label="文件名" prop="fileName" />
+      <el-table-column show-overflow-tooltip label="组织" prop="sharedUser" />
+      <el-table-column show-overflow-tooltip label="上传时间" prop="timeStamp" width="250">
+        <template slot-scope="scope">
+          {{ scope.row.timeStamp }}
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" align="right" width="200">
+        <template slot-scope="scope">
+          <el-button size="mini" type="success" @click="decryDownload(scope.row)">
+            申请解密
+          </el-button>
+          <el-button size="mini" @click="cipherDownload(scope.row)"> 下载 
+        </el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+  </template>
+  
+  <script>
+  // @ is an alias to /src
+  import { getters } from "@/store/store";
+  import { FileDownloader } from "@/mixins/Download";
+  import { FilterEmpty } from "@/mixins/FilterEmpty";
+  import { TimeFormat } from "@/mixins/TimeFormat";
+import { thresholdApi } from "@/api/threshold";
+  
+  export default {
+    name: "FilesTable",
+    mixins: [FileDownloader, FilterEmpty, TimeFormat],
+  
+    props: {
+  
+      files: {
+        type: Array,
+        default: undefined,
+      },
+    },
+  
+    methods: {
+      decryDownload(scope) {
+        const user = getters.userName();
+        const { fileName  } = scope;
+        const orgName = scope.sharedUser;
+        console.log(fileName, orgName,user);
+        thresholdApi
+          .tryApplyThresholdFile({orgName,user,fileName})
+          .then(res =>
+          console.log(res)
+          ).catch((e) => {
+            this.$message({
+              message: e.message,
+              duration: 5000,
+              type: "error",
+            });
+          })
+
+        // fileApi
+        //   .decrypt({  })
+        //   .then(() => {
+        //     return fileApi
+        //       .download({ fileName, sharedUser })
+        //       .then((_) => {
+        //         this.saveFile(fileName, _);
+        //       })
+        //       .catch((e) => {
+        //         this.$message({
+        //           message: e.message,
+        //           duration: 5000,
+        //           type: "error",
+        //         });
+        //       });
+        //   })
+        //   .catch((e) => {
+        //     this.$message({
+        //       message: e.message,
+        //       duration: 5000,
+        //       type: "error",
+        //     });
+        //   });
+      },
+  
+      cipherDownload(scope) {
+        const userName = getters.userName();
+        const { sharedUser, fileName } = scope;
+        const orgName = sharedUser;
+        console.log(userName,orgName,fileName);
+        thresholdApi
+          .downLoadThresholdFile({orgName, userName, fileName})
+          .then(res =>
+          console.log(res)
+          ).catch((e) => {
+            this.$message({
+              message: e.message,
+              duration: 5000,
+              type: "error",
+            });
+          })
+  
+        // fileApi
+        //   .downloadCipher({ userName, fileName, sharedUser })
+        //   .then((_) => {
+        //     this.saveFile("cipher_hash_" + fileName, _);
+        //   })
+        //   .catch((e) => {
+        //     this.$message({
+        //       message: e.message,
+        //       duration: 5000,
+        //       type: "error",
+        //     });
+        //   });
+
+      },
+    },
+  };
+  </script>
+  
+  <style scoped>
+  .el-tag {
+    margin-right: 6px;
+  }
+  </style>

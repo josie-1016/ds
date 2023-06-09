@@ -16,9 +16,15 @@
             </template>
           </el-table-column>
 
-          <el-table-column label="操作" width="160" align="right">
+          <el-table-column label="操作" width="480" align="right">
             <template slot-scope="scope">
+<<<<<<< HEAD
               <el-button v-loading.fullscreen.lock="fullscreenLoading" size="mini" @click="submitPartPK(scope.row)"> 提交组织秘密 </el-button>
+=======
+              <el-button size="mini" @click="approveThresholdPartSK(scope.row)"> 同意门限公钥生成 </el-button>
+              <el-button size="mini" @click="submitThresholdPartSk(scope.row)"> 申请门限公钥生成 </el-button>
+              <el-button size="mini" @click="submitPartPK(scope.row)"> 提交组织秘密 </el-button>
+>>>>>>> Threshold
             </template>
           </el-table-column>
         </el-table>
@@ -65,6 +71,7 @@
 import Card from "@/components/Card.vue";
 import { orgApi } from "@/api/organizations";
 import { getters } from "@/store/store";
+import { thresholdApi } from "@/api/threshold";
 
 export default {
   name: "Mine",
@@ -225,7 +232,47 @@ export default {
           });
         });
     },
-
+    submitThresholdPartSk(org) {
+      const userName = getters.userName();
+      console.log(userName)
+      console.log("11111111111111")
+      thresholdApi.applyThresholdOrgPartSk({ orgName:org.name,uid:userName})
+        .then(() => {
+          this.$message({
+            message: "提交成功",
+            duration: 2 * 1000,
+            type: "success",
+          })
+          console.log("门限公钥申请")
+        })
+        .catch((e) => {
+          this.$message({
+            message: e.message,
+            type: "error",
+          });
+        });
+    },
+    approveThresholdPartSK(org){
+      const userName = getters.userName();
+      console.log(userName)
+      console.log("11111111111111")
+      thresholdApi.approveThresholdOrgPartSk({orgName:org.name,uid:userName})
+      .then(() => {
+          this.$message({
+            message: "提交成功",
+            duration: 2 * 1000,
+            type: "success",
+          })
+          console.log("门限公钥同意")
+          this.tryThresholdCompleteOrgPK(org.name,userName)
+        })
+        .catch((e) => {
+          this.$message({
+            message: e.message,
+            type: "error",
+          });
+        });
+    },
     trycompleteOrgPK(userName, orgName) {
       orgApi
         .completeOrg({ userName, orgName })
@@ -236,6 +283,18 @@ export default {
             type: "success",
           });
           location.reload();
+        })
+        .catch(console.log);
+    },
+    tryThresholdCompleteOrgPK(orgName,userName){
+      thresholdApi
+      .completeThresholdOrgPartSk({orgName:orgName,uid:userName})
+      .then(() => {
+          this.$message({
+            message: "组织已确认创建",
+            duration: 2 * 1000,
+            type: "success",
+          });
         })
         .catch(console.log);
     },

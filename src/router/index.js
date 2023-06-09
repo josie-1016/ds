@@ -72,6 +72,11 @@ const routes = [
         component: () => import('../views/user/numbers/Numbers.vue'),
       },
       {
+        path: 'threshold', 
+        name: 'threshold',
+        component: () => import('../views/user/threshold/Threshold.vue'),
+      },
+      {
         path: 'organizations',
         name: 'organizations',
         component: () => import('../views/user/organizations/Organizations.vue'),
