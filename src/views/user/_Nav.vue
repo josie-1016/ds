@@ -33,7 +33,7 @@ export default {
         {
           to: "/user/numbers",
           name: "numbers",
-          title: "数额",
+          title: "零知识范围证明",
         },
         {
           to: "/user/SM2files",

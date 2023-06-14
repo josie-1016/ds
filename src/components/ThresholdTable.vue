@@ -26,6 +26,7 @@
   import { FilterEmpty } from "@/mixins/FilterEmpty";
   import { TimeFormat } from "@/mixins/TimeFormat";
 import { thresholdApi } from "@/api/threshold";
+  import {Message} from "element-ui";
   // import {fileApi} from "@/api/files";
   
   export default {
@@ -48,8 +49,14 @@ import { thresholdApi } from "@/api/threshold";
         console.log(fileName, orgName,user);
         thresholdApi
           .tryApplyThresholdFile({orgName,user,fileName})
-          .then(res =>
-          console.log(res)
+          .then(res =>{
+                console.log(res);
+                Message({
+                  message: "申请成功",
+                  duration: 5000,
+                  type: "success",
+                });
+            }
           ).catch((e) => {
             this.$message({
               message: e.message,

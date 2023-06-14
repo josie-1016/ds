@@ -135,6 +135,7 @@ export default {
               duration: 5000,
               type: "success",
             });
+            this.fullscreenLoading = false;
             this.$emit('refresh');
           })
           .catch((e) => {

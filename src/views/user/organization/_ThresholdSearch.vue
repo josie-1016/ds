@@ -1,18 +1,31 @@
 <template>
     <Card title="门限搜索">
-      <template v-slot:op>
-        <el-input size="medium" placeholder="请输入要搜索的用户" v-model="newUser"></el-input>
-        <el-input size="medium" placeholder="请输入要搜索的文件" v-model="newfile">
-          <el-button slot="append" @click="searchFile">搜索</el-button>
-        </el-input>
-      </template>
+      <div style="margin-bottom: 15px">
+        <el-row :gutter="10">
+          <el-col :span="8">
+            <el-input size="medium" placeholder="请输入要搜索的用户" v-model="newUser"></el-input>
+          </el-col>
+          <el-col :span="8">
+            <el-input size="medium" placeholder="请输入要搜索的文件" v-model="newfile"></el-input>
+          </el-col>
+          <el-col :span="2">
+            <el-button style="float: right" type="primary" @click="searchFile">搜索</el-button>
+          </el-col>
+        </el-row>
+      </div>
+<!--      <template v-slot:op>-->
+<!--        <el-input size="medium" placeholder="请输入要搜索的用户" v-model="newUser"></el-input>-->
+<!--        <el-input size="medium" placeholder="请输入要搜索的文件" v-model="newfile">-->
+<!--          <el-button slot="append" @click="searchFile">搜索</el-button>-->
+<!--        </el-input>-->
+<!--      </template>-->
       <div v-if="attr">
         <el-table :data="[attr]">
           <el-table-column show-overflow-tooltip label="文件名" prop="fileName" />
           <el-table-column label="申请时间" prop="createTime" width="160">
             <template slot-scope="scope">
-              <!-- {{ formatTime(scope.row.createTime) }} -->
-              {{ scope.row.createTime }}
+               {{ formatTime(scope.row.createTime) }}
+<!--              {{ scope.row.createTime }}-->
             </template>
           </el-table-column>
           <el-table-column label="申请人" prop="applyPerson" width="160"></el-table-column>
@@ -32,16 +45,16 @@
           </el-table-column>
         </el-table>
   
-        <el-table :data="members(attr)" style="width: 100%">
-          <el-table-column show-overflow-tooltip prop="name" label="小组成员"> </el-table-column>
-          <el-table-column prop="value" label="是否同意该属性" align="right">
-            <template slot-scope="scope">
-              <el-tag :type="statusTypes[scope.row.value]">
-                {{ scope.row.value ? "已同意" : "未响应" }}
-              </el-tag>
-            </template>
-          </el-table-column>
-        </el-table>
+<!--        <el-table :data="members(attr)" style="width: 100%">-->
+<!--          <el-table-column show-overflow-tooltip prop="name" label="小组成员"> </el-table-column>-->
+<!--          <el-table-column prop="value" label="是否同意该属性" align="right">-->
+<!--            <template slot-scope="scope">-->
+<!--              <el-tag :type="statusTypes[scope.row.value]">-->
+<!--                {{ scope.row.value ? "已同意" : "未响应" }}-->
+<!--              </el-tag>-->
+<!--            </template>-->
+<!--          </el-table-column>-->
+<!--        </el-table>-->
       </div>
       <el-empty v-else></el-empty>
     </Card>
@@ -70,12 +83,13 @@ import { thresholdApi } from "@/api/threshold";
       return {
         newUser: "",
         newfile: "",
-        attr: {
-          status:"未解密"
-
-
-
-        },
+        attr:"",
+        // attr: {
+        //   status:"未解密"
+        //
+        //
+        //
+        // },
         statusTypes: {
           true: "success",
           false: "danger",
@@ -91,8 +105,8 @@ import { thresholdApi } from "@/api/threshold";
         const userName = getters.userName();
         const fileName = this.newfile;
         const fromUid = this.newUser;
-        this.attr.fileName = fileName;
-        this.attr.applyPerson = fromUid;
+        // this.attr.fileName = fileName;
+        // this.attr.applyPerson = fromUid;
         console.log(orgName, userName, fileName,fromUid);
         console.log("111111111111111111111111111111111111111111")
         // const attrName = `${orgName}:${this.newAttr}`;
@@ -126,11 +140,11 @@ import { thresholdApi } from "@/api/threshold";
               status: "未解密",
               createTime: res,
             }
-            this.$message({
-              message: "提交成功",
-              duration: 2 * 1000,
-              type: "success",
-            });
+            // this.$message({
+            //   message: "提交成功",
+            //   duration: 2 * 1000,
+            //   type: "success",
+            // });
           }).catch((e) => {
             this.$message({
               message: e.message,
@@ -188,7 +202,7 @@ import { thresholdApi } from "@/api/threshold";
           .approvalThreshold({userName, org , fileName, fromUid})
           .then(() => {
             this.$message({
-              message: "组织属性已确认创建",
+              message: "已同意解密",
               duration: 2 * 1000,
               type: "success",
             });

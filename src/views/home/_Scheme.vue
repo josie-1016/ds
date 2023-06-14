@@ -2,9 +2,9 @@
   <section class="section">
     <div class="section-title">方案</div>
     <div class="flex-cols">
-        <a v-for="(attr, index) in attrs" :key="index" class="flex-entry">
-          <div class="entry-title" style="margin:0 auto;">{{ attr.title }}</div>
-          <!-- <div class="entry-desc">{{ attr.desc }}</div> -->
+      <a v-for="(attr, index) in attrs" :key="index" class="flex-entry fuck-underline" :href="attr.link">
+        <div class="entry-title" style="margin:0 auto;" >{{ attr.title }}</div>
+        <!-- <div class="entry-desc">{{ attr.desc }}</div> -->
         </a>
     </div>
   </section>
@@ -20,11 +20,11 @@ export default {
   data() {
     return {
       attrs: [
-        { title: "属性加密", desc: "" },
-        { title: "门限加密", desc: "" },
-        { title: "非对称密钥", desc: "" },
-        { title: "环签名", desc: "" },
-        { title: "零知识证明", desc: "" },
+        { title: "属性加密", desc: "" , link:"/#/user"},
+        { title: "门限加密", desc: "",link:"/#/user/threshold" },
+        { title: "国密", desc: "",link:"/#/user/SM2files" },
+        { title: "环签名", desc: "",link:"/#/user/files" },
+        { title: "零知识证明", desc: "", link:"/#/user/numbers"},
       ]
     };
   },
@@ -53,6 +53,10 @@ export default {
 .flex-entry:hover {
   background-color: #e2e2e2;
   transition: 0.3s;
+}
+
+.fuck-underline {
+  text-decoration: none !important;
 }
 
 </style>
