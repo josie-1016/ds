@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import axios from "axios";
 /*  上传加密门限文件
     组织外人员根据组织和文件名搜索门限文件
     组织内人员根据组织和文件名搜索门限文件
@@ -207,7 +208,8 @@ export const thresholdApi ={
             }).catch(reject)
         })
     },
-    downLoadThresholdFile: function({orgName,userName,fileName}){
+
+    decrypt: function({orgName,userName,fileName}){
         const data = {
             userName:userName,
             orgName:orgName,
@@ -216,7 +218,7 @@ export const thresholdApi ={
         console.log(data)
         return new Promise((resolve,reject) => {
             request({
-                url: '/content/ThresholdDownload',
+                url: '/content/thresholdDecrypt',
                 method: 'get',
                 params:data,
             }).then(response => {
@@ -229,4 +231,77 @@ export const thresholdApi ={
             }).catch(reject)
         })
     },
+
+    // decrypt: function ({ user, cipher, sharedUser, fileName, tags }) {
+    //     // userName   解密用户
+    //     // fileName   解密文件名
+    //     // cipher     密文
+    //     // sharedUser 文件共享者
+    //     const data = {
+    //         userName: user,
+    //         fileName,
+    //         cipher,
+    //         tags,
+    //         sharedUser,
+    //     }
+    //
+    //     return new Promise((resolve, reject) => {
+    //         request({
+    //             url: '/content/decryption',
+    //             method: 'post',
+    //             data
+    //         }).then(response => {
+    //             // {
+    //             //     "code":200     200, 成功; 其他，失败
+    //             //     "msg":null,    描述
+    //             //     "data": content 共享文件内容
+    //             // }
+    //             if (response.code === 200) {
+    //                 resolve(response.data)
+    //             }
+    //             else {
+    //                 reject(response)
+    //             }
+    //         }).catch(reject)
+    //     })
+    // },
+
+    /**
+     * 下载共享文件
+     * @param {*} _data 参数
+     * @returns Promise
+     */
+    download: function ({ fileName, orgName }) {
+        // fileName   解密文件名
+        // sharedUser 文件共享者
+        const data = {
+            fileName,
+            orgName,
+        }
+
+        return new Promise((resolve, reject) => {
+            axios.request({
+                baseURL: process.env.NODE_ENV === "development" ? process.env.VUE_APP_DEV_URL : process.env.VUE_APP_PRO_URL,
+                url: '/content/thresholdDownload',
+                method: 'get',
+                data,
+                params: data,
+                responseType: 'blob', // important
+            }).then(response => {
+                // {
+                //     "code":200     200, 成功; 其他，失败
+                //     "msg":null,    描述
+                //     "data":content 共享文件内容
+                // }
+                if (response.status === 200) {
+                    resolve(response.data)
+                }
+                else {
+                    reject(response)
+                }
+            }).catch(reject)
+        })
+    },
+
+
 }

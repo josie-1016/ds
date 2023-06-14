@@ -86,7 +86,7 @@ import { thresholdApi } from "@/api/threshold";
     methods: {
       searchFile() {
         // this.attr = false;
-        const orgName = "龙30";
+        const orgName = this.info.orgId
         // const orgName = "long" ;
         const userName = getters.userName();
         const fileName = this.newfile;
@@ -142,7 +142,7 @@ import { thresholdApi } from "@/api/threshold";
   
       submitPartPK(attr) {
         const userName = getters.userName();
-        const orgName = "龙30";
+        const orgName = this.info.orgId;
         const { attrName } = attr;
   
         orgApi
@@ -179,7 +179,7 @@ import { thresholdApi } from "@/api/threshold";
   
       agreeFile(file) {
         const userName = getters.userName();
-        const org = "龙30";
+        const org = this.info.orgId;
         const { fileName } = file;
         const fromUid = file.applyPerson;
         console.log(userName ,org, fileName,fromUid)

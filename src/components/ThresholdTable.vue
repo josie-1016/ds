@@ -26,6 +26,7 @@
   import { FilterEmpty } from "@/mixins/FilterEmpty";
   import { TimeFormat } from "@/mixins/TimeFormat";
 import { thresholdApi } from "@/api/threshold";
+  // import {fileApi} from "@/api/files";
   
   export default {
     name: "FilesTable",
@@ -88,16 +89,39 @@ import { thresholdApi } from "@/api/threshold";
         const orgName = sharedUser;
         console.log(userName,orgName,fileName);
         thresholdApi
-          .downLoadThresholdFile({orgName, userName, fileName})
-          .then(res =>
-          console.log(res)
-          ).catch((e) => {
-            this.$message({
-              message: e.message,
-              duration: 5000,
-              type: "error",
+            .decrypt({orgName, userName, fileName})
+            .then(() => {
+              return thresholdApi
+                  .download({ fileName, orgName })
+                  .then((_) => {
+                    this.saveFile(fileName, _);
+                  })
+                  .catch((e) => {
+                    this.$message({
+                      message: e.message,
+                      duration: 5000,
+                      type: "error",
+                    });
+                  });
+            })
+            .catch((e) => {
+              this.$message({
+                message: e.message,
+                duration: 5000,
+                type: "error",
+              });
             });
-          })
+        // thresholdApi
+        //   .download({orgName, fileName})
+        //     .then((_) => {
+        //       this.saveFile(fileName, _);
+        //     }).catch((e) => {
+        //     this.$message({
+        //       message: e.message,
+        //       duration: 5000,
+        //       type: "error",
+        //     });
+        //   })
   
         // fileApi
         //   .downloadCipher({ userName, fileName, sharedUser })
